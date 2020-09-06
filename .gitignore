@@ -1,4 +1,4 @@
-/node_modules
-/dist
-/build
+lab_1/node_modules
+lab_1/dist
+lab_1/build
 .idea
