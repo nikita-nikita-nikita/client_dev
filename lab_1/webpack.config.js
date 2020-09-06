@@ -10,6 +10,7 @@ module.exports = {
         filename: "main.js",
         path: path.resolve(__dirname, "dist")
     },
+
     devtool: 'inline-source-map',
     devServer: {
         contentBase: './dist',
@@ -52,6 +53,14 @@ module.exports = {
                     'sass-loader',
                 ],
             },
+            {
+                test: /\.(png|jpe?g|gif|svg)$/i,
+                loader: 'file-loader',
+                options: {
+                    name: 'assets/img/[name].[ext]',
+                },
+            },
+
         ],
     },
 }

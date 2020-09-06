@@ -3,4 +3,6 @@ import "popper.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 import "../css/styles.css";
+import "../scss/style.scss";
+import "../assets/img/white_logo.png";
 

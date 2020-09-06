@@ -1,5 +1,21 @@
-$bg-color:blue;
 
-body{
-  background-color: $bg-color;
+header {
+  nav {
+    .blm {
+      background-color: #171717 !important;
+      padding: 5px 10px 5px;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: white !important;
+        color: #171717 !important;
+      }
+    }
+    a {
+      h2 {
+        font-family: "Trebuchet MS";
+      }
+    }
+
+  }
 }

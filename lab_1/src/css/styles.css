@@ -32,3 +32,18 @@ a, a:visited{text-decoration: none;}
 a:hover{text-decoration: none;}
 ul li{list-style: none;}
 img{vertical-align: top;}
+
+body {
+  background: #232C31!important;
+}
+
+a:hover {
+  color: #10DD7B!important;
+}
+a {
+  color: white!important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
