@@ -1,6 +1,12 @@
 
 header {
+  position: fixed;
+  z-index: 9999999;
+  width: 100%;
+  height: 80px;
+  top: 0;
   nav {
+    height: 100%;
     .blm {
       background-color: #171717 !important;
       padding: 5px 10px 5px;
@@ -14,7 +20,7 @@ header {
 
     a {
       h2 {
-        font-family: "Trebuchet MS";
+        font-family: "Trebuchet MS"; // todo
       }
     }
 
@@ -22,7 +28,7 @@ header {
 }
 
 main {
-
+  margin-top: 80px;
 }
 
 .leha {
@@ -82,11 +88,15 @@ main {
 }
 
 .featurette-divider {
-  margin: 5rem 0px;
+  margin: 100px 0;
   background: #6C7E86;
 }
 
 .container-marketing {
-  margin: 1rem;
-  padding: 0 15px;
+  font-family: "Trebuchet MS";
 }
+
+.featurette-img {
+  width: 100%;
+}
+
