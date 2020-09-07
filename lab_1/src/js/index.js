@@ -13,6 +13,12 @@ import "../assets/img/dima.png";
 import "../assets/img/nikita.png";
 import "../assets/img/leha.png";
 import "../assets/img/volki.jpg"
+import "../assets/img/collage.png"
+import "../assets/img/ik.jpg"
+import "../assets/img/flatiron.jpg"
+
+
+
 
 
 
