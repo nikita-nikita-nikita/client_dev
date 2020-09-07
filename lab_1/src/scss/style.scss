@@ -99,7 +99,6 @@ main {
 .card:hover {
     box-shadow: 0 0 30px 2px #10DD7B;
     transform: scale(1.05);
-    cursor: pointer;
 }
 
 .cards-block {
@@ -119,12 +118,14 @@ main {
 }
 
 .container-marketing {
-    font-family: "Trebuchet MS";
+    font-family: "Trebuchet MS", serif;
     p {
         font-size: 18px;
     }
     img {
         border-radius: 10px;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
     }
     h2 {
         font-weight: bold;
@@ -136,7 +137,6 @@ main {
 .featurette-img {
     width: 100%;
 }
-
 
 .cards-block{
     position: relative;
@@ -161,6 +161,38 @@ main {
 
 .featurette-heading {
     font-size: 50px;
+}
+
+// ANIMATION FLIP
+
+.card-container {
+    perspective: 700px;
+}
+
+.card-flip, .card-container {
+    display: grid;
+    grid-template: 1fr / 1fr;
+    grid-template-areas: "frontAndBack";
+    transform-style: preserve-3d;
+    transition: all 0.7s ease;
+}
+
+.card-flip div {
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+.front {
+    grid-area: frontAndBack;
+}
+
+.back {
+    grid-area: frontAndBack;
+    transform: rotateY(-180deg);
+}
+
+.card-container:hover .card-flip {
+    transform: rotateY(180deg);
 }
 
 @media (max-width: 550px) {

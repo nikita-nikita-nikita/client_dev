@@ -16,6 +16,9 @@ import "../assets/img/volki.jpg"
 import "../assets/img/collage.png"
 import "../assets/img/ik.jpg"
 import "../assets/img/flatiron.jpg"
+import "../assets/img/1.jpg"
+import "../assets/img/2.jpg"
+import "../assets/img/3.jpg"
 
 
 
