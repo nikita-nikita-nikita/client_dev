@@ -66,12 +66,12 @@ main {
 }
 
 .card:hover {
-  box-shadow:  0 0 30px 2px #10DD7B;
-  transform: translateZ(20px);
+  box-shadow: 0 0 30px 2px #10DD7B;
   transform: scale(1.1);
 }
-.cards-block {
-  transform-style: preserve-3d;
+
+.cards-block{
+  margin: 0;
 }
 
 .card-img-top {
