@@ -19,6 +19,11 @@ import "../assets/img/flatiron.jpg"
 import "../assets/img/1.jpg"
 import "../assets/img/2.jpg"
 import "../assets/img/3.jpg"
+import "../assets/img/party.jpg"
+import "../assets/img/inst.png"
+import "../assets/img/inst.svg"
+
+
 
 
 

@@ -25,7 +25,7 @@ header {
 
         a {
             h2 {
-                font-family: "Trebuchet MS"; // todo
+                font-family: "Trebuchet MS", serif; // todo
             }
         }
 
@@ -89,7 +89,26 @@ main {
         left: 50%;
         transform: translateX(-50%);
     }
-
+    img {
+        transition: $delay;
+    }
+    .main-pic:hover {
+        filter: brightness(45%);
+    }
+    .inst-pic {
+        position: absolute;
+        width: 45px;
+        height: 45px;
+        left: 50%;
+        margin-top: 90px;
+        pointer-events: none;
+        transform: translateX(-50%);
+        transition: opacity .4s ease-in-out;
+        opacity: 0;
+    }
+    .main-pic:hover ~.inst-pic {
+        opacity: 1;
+    }
     .btn:hover {
         color: black!important;
         background: white !important;
@@ -160,6 +179,7 @@ main {
 }
 
 .featurette-heading {
+    text-shadow: 1px 1px 10px 10px black!important;
     font-size: 50px;
 }
 
@@ -206,7 +226,7 @@ main {
     }
     .container-marketing {
         p {
-            font-size: 12px;
+            font-size: 14px;
         }
     }
     .featurette-heading {

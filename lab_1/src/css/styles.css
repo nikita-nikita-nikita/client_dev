@@ -38,10 +38,10 @@ body {
   color: white;
 }
 
-a:hover {
+a:hover:not(.inst-pic) {
   color: #10DD7B!important;
 }
-a {
+a:not(.inst-pic) {
   color: white!important;
 }
 
