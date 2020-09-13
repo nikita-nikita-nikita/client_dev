@@ -36,6 +36,18 @@ img{vertical-align: top;}
   font-family: 'NanamiRoundedW01-Medium';
 }
 
+/**/
+
+body{
+  background: url("double-bubble-dark.png");
+}
+
+/*main*/
+main{
+  margin-top: 50px;
+}
+
+/*header*/
 header{
   background-color: #FF3758;
   text-align: center;
@@ -45,4 +57,126 @@ header{
   align-items: center;
   justify-content: center;
   color: white;
+}
+
+/*chat-container*/
+.chat-container{
+  width: 600px;
+  position: relative;
+  margin: 0 auto;
+}
+
+/*chat*/
+.chat{
+  overflow-y: auto;
+  width: 100%;
+  border: 3px solid #FF3758;
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  height: 500px!important;
+  position: relative;
+}::-webkit-scrollbar{
+   display: none;
+}
+/*polyana*/
+.polyana{
+  width: 100%;
+  height: 500px;
+  position: absolute;
+  filter: blur(5px) brightness(50%);
+  left: 0;
+  top: 0;
+  background-image: url("https://img.tsn.ua/cached/1533903782/tsn-10b074b73c19092c21afb42e6fe3f8e2/thumbs/768x768/90/ff/bb2242e503c0d51e1e66af26f7bcff90.jpeg");
+}
+
+/*message*/
+.message{
+  z-index: 999999;
+  margin: 5px;
+  display: flex;
+  align-items: flex-end;
+  max-width: calc(90% - 53px);
+}
+
+/*message img*/
+.message img{
+  border-radius: 50%;
+}
+
+/*message content*/
+.message .content{
+  position: relative;
+  margin-left: 10px;
+  color: white;
+  padding: 5px;
+  background-color: rgba(12, 84, 96, 0.5);
+  border-radius: 8px;
+}
+.message .content:before{
+  content: "";
+  position: absolute;
+  bottom: 8px;
+  right: 100%;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-right: 10px solid rgba(12, 84, 96, 0.5);
+  border-bottom: 5px solid transparent;
+}
+
+/*my message*/
+.my{
+  flex-direction: row-reverse;
+  float: right;
+}
+
+.my .content{
+  background-color: rgba(0,210,219, 0.5);
+  margin-left: 0;
+  margin-right: 10px;
+}
+
+.my .content:before{
+  left: 100%;
+  border-right: none;
+  border-top: 5px solid transparent;
+  border-left: 10px solid #00CED7;
+  border-bottom: 5px solid transparent;
+}
+/*Send message*/
+.send-message-form{
+  margin: 0 auto;
+  width: 100%;
+  border: 3px solid #FF3758;
+  border-top: none;
+  background-color: #0f6674;
+  border-radius: 0 0 10px 10px ;
+}
+.send-message-form .send-message-textarea{
+  display: inline-block;
+  resize: none;
+  box-sizing: border-box;
+  width: 90%;
+  font-size: 1.5rem;
+  background: none;
+  color: white;
+  padding: 5px;
+}::placeholder{
+  color: white;
+}::-webkit-scrollbar{
+  display: none;
+}
+
+.send-message-form .submit-button{
+  background: none;
+  color: white;
+  width: 50px;
+  height: 50px;
+  font-size: 2rem;
+}
+/*media*/
+@media screen and (max-width: 500px){
+  .chat-container{
+    width: 95%;
+  }
 }
