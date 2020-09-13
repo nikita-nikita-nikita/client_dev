@@ -36,7 +36,7 @@ function apppend_message(text, name, ava, my=true){
         '                     src="bomji/'+ava+'.jpg" alt="avatar">\n' +
         '                <div class="content"><h3 style="color: yellow">'+name+'</h3>\n' +
         '                    <p>'+text+'</p></div>\n' +
-        '            </section><br>');
+        '            </section>');
     var block=document.querySelector('.chat');
     block.scrollTop = block.scrollHeight;
 }
