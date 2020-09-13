@@ -30,6 +30,7 @@ block.scrollTop = block.scrollHeight;
 
 $('.send-message-form').submit((event) => {
     event.preventDefault();
+    if(!$('.send-message-textarea').val()) return;
     apppend_message($('.send-message-textarea').val(), name, ava);
     socket.emit('send mess', {mess: $('.send-message-textarea').val(), name: name, ava: ava});
     $('.send-message-textarea').val('');
@@ -43,6 +44,6 @@ function apppend_message(text, name, ava, my=true){
         '                <div class="content"><h3 style="color: yellow">'+name+'</h3>\n' +
         '                    <p>'+text+'</p></div>\n' +
         '            </section>');
-    var block=document.querySelector('.chat');
+    const block=document.querySelector('.chat');
     block.scrollTop = block.scrollHeight;
 }

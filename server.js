@@ -24,12 +24,12 @@ io.sockets.on('connection', (socket) => {
 
     socket.emit("all mess", messages);
 
-    socket.on('disconnect', function(data) {
+    socket.on('disconnect', (data) => {
         connections.splice(connections.indexOf(socket), 1);
         console.log("Отключились");
     });
 
-    socket.on('send mess', function(data) {
+    socket.on('send mess', (data) => {
         messages.push(data);
         io.sockets.emit('add mess', {mess: data.mess, name: data.name, ava: data.ava});
     });
