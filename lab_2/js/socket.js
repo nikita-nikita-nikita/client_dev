@@ -19,6 +19,12 @@ socket.on('add mess', function(data) {
     }
 });
 
+socket.on('all mess', function(data) {
+    for(let i in data){
+        apppend_message(data[i].mess, data[i].name, data[i].ava, my = false)
+    }
+});
+
 let block=document.querySelector('.chat');
 block.scrollTop = block.scrollHeight;
 

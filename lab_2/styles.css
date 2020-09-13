@@ -110,17 +110,17 @@ header h2:hover {
 
 /*chat*/
 .chat{
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-  width: 100%;
-  border: 3px solid #FF3758;
-  border-bottom: none;
-  border-radius: 10px 10px 0 0;
-  height: 500px!important;
-  position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    width: 100%;
+    border: 3px solid #FF3758;
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+    height: 500px!important;
+    position: relative;
 }::-webkit-scrollbar{
-   display: none;
+     display: none;
  }
 /*polyana*/
 .polyana {
@@ -178,8 +178,8 @@ header h2:hover {
 
 /*my message*/
 .my{
-  flex-direction: row-reverse;
-  align-self: flex-end;
+    flex-direction: row-reverse;
+    align-self: flex-end;
 }
 
 .my .content {
@@ -192,40 +192,40 @@ header h2:hover {
     left: 100%;
     border-right: none;
     border-top: 5px solid transparent;
-    border-left: 10px solid #2C949C;
+    border-left: 10px solid rgba(0, 210, 219, 0.5);
     border-bottom: 5px solid transparent;
 }
 
 /*Send message*/
 .send-message-form{
-  margin: 0 auto;
-  width: 100%;
-  border: 3px solid #FF3758;
-  border-top: none;
-  background-color: #0f6674;
-  border-radius: 0 0 10px 10px ;
+    margin: 0 auto;
+    width: 100%;
+    border: 3px solid #FF3758;
+    border-top: none;
+    background-color: #0f6674;
+    border-radius: 0 0 10px 10px ;
 }
 .send-message-form .send-message-textarea{
-  display: inline-block;
-  resize: none;
-  box-sizing: border-box;
-  width: 90%;
-  font-size: 1.5rem;
-  background: none;
-  color: white;
-  padding: 5px;
+    display: inline-block;
+    resize: none;
+    box-sizing: border-box;
+    width: 90%;
+    font-size: 1.5rem;
+    background: none;
+    color: white;
+    padding: 5px;
 }::placeholder{
-   color: white;
+     color: white;
  }::-webkit-scrollbar{
-    display: none;
+      display: none;
   }
 
 .send-message-form .submit-button{
-  background: none;
-  color: white;
-  width: 50px;
-  height: 50px;
-  font-size: 2rem;
+    background: none;
+    color: white;
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
 }
 
 /*footer*/
