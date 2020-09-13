@@ -5,9 +5,23 @@ const avatars = [
     "https://bipbap.ru/wp-content/uploads/2016/11/1455682516_001.jpg"
 ];
 
-$('textarea').keydown(e => {
-    const textarea = e.target;
-    if (textarea.scrollTop > 0 && parseInt(window.getComputedStyle(textarea).height) <= 100) {
-        textarea.style.height = `${textarea.scrollHeight}px`;
+
+class Data {
+    constructor() {
+        this.textArea = document.querySelector('textarea');
     }
-});
+
+    setHeight = () => {
+        if (this.textArea.scrollTop > 0 && parseInt(window.getComputedStyle(this.textArea).height) <= 100) {
+            this.textArea.style.height = this.textArea.scrollHeight >= 100 ? '100px' : `${this.textArea.scrollHeight}px`;
+        }
+    }
+    bindEvent =  (event) => {
+        this.textArea.addEventListener(event, this.setHeight);
+    }
+}
+
+const data = new Data()
+
+data.bindEvent('keydown');
+data.bindEvent('paste');
