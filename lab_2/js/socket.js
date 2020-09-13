@@ -37,7 +37,7 @@ $('.send-message-form').submit((event) => {
 });
 
 function apppend_message(text, name, ava, my=true){
-    $('.chat').append('<section class="message'+(my?' my':'')+'">\n' +
+    $('.chat').append('<section class="animated fadeIn animate__faster message'+(my?' my':'')+'">\n' +
         '                <img width="50" height="50"\n' +
         '                     src="bomji/'+ava+'.jpg" alt="avatar">\n' +
         '                <div class="content"><h3 style="color: yellow">'+name+'</h3>\n' +
