@@ -11,7 +11,7 @@ app.get('/', function(request, response) {
 });
 
 
-server.listen(9000);
+server.listen(process.env.PORT||9000);
 
 const connections = [];
 const messages = [];
