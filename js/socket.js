@@ -1,4 +1,4 @@
-const socket = io.connect('localhost:9000');
+const socket = io.connect('https://alcochat.herokuapp.com/');
 
 // $form.submit(function(event) {
 //     event.preventDefault();
