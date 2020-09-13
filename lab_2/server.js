@@ -13,7 +13,9 @@ app.get('/', function(request, response) {
 
 server.listen(9000);
 
-io.sockets.on('connection', function(socket) {
+const connections = [];
+
+io.sockets.on('connection', (socket) => {
     console.log("Успешное соединение");
     // Добавление нового соединения в массив
     connections.push(socket);
