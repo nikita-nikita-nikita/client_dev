@@ -68,6 +68,8 @@ header{
 
 /*chat*/
 .chat{
+  display: flex;
+  flex-direction: column;
   overflow-y: auto;
   width: 100%;
   border: 3px solid #FF3758;
@@ -77,7 +79,7 @@ header{
   position: relative;
 }::-webkit-scrollbar{
    display: none;
-}
+ }
 /*polyana*/
 .polyana{
   width: 100%;
@@ -127,7 +129,7 @@ header{
 /*my message*/
 .my{
   flex-direction: row-reverse;
-  float: right;
+  align-self: flex-end;
 }
 
 .my .content{
@@ -162,10 +164,10 @@ header{
   color: white;
   padding: 5px;
 }::placeholder{
-  color: white;
-}::-webkit-scrollbar{
-  display: none;
-}
+   color: white;
+ }::-webkit-scrollbar{
+    display: none;
+  }
 
 .send-message-form .submit-button{
   background: none;

@@ -6,19 +6,37 @@ const socket = io.connect('localhost:9000');
 //     $textarea.val('');
 // });
 
-socket.on('action', function(data) {
-    $all_messages.append("<div class='alert alert-" + data.className + "'><b>" + data.name + "</b>: " + data.mess + "</div>");
+const default_textarea = $('textarea').height();
+
+const names = ['Василий', 'Алексей', 'Олег', 'Андрей', 'Петр']
+const name = names[Math.floor(Math.random()*names.length)];
+const ava = Math.ceil(Math.random()*6);
+
+
+socket.on('add mess', function(data) {
+    if(data.name != name){
+        apppend_message(data.mess, data.name, data.ava, my = false)
+    }
 });
 
-$('.send-message-form').onsubmit(() => {
-    apppend_message($('.send-message-textarea').value());
+let block=document.querySelector('.chat');
+block.scrollTop = block.scrollHeight;
+
+$('.send-message-form').submit((event) => {
+    event.preventDefault();
+    apppend_message($('.send-message-textarea').val(), name, ava);
+    socket.emit('send mess', {mess: $('.send-message-textarea').val(), name: name, ava: ava});
+    $('.send-message-textarea').val('');
+    $('textarea').height(default_textarea);
 });
 
-function apppend_message(text){
-    $('.chat').append('<section class="message">\n' +
+function apppend_message(text, name, ava, my=true){
+    $('.chat').append('<section class="message'+(my?' my':'')+'">\n' +
         '                <img width="50" height="50"\n' +
-        '                     src="https://www.meme-arsenal.com/memes/547f571a0ae09614a2e9d93260e15f70.jpg" alt="avatar">\n' +
-        '                <div class="content"><h3 style="color: yellow">Username</h3>\n' +
+        '                     src="bomji/'+ava+'.jpg" alt="avatar">\n' +
+        '                <div class="content"><h3 style="color: yellow">'+name+'</h3>\n' +
         '                    <p>'+text+'</p></div>\n' +
-        '            </section>');
+        '            </section><br>');
+    var block=document.querySelector('.chat');
+    block.scrollTop = block.scrollHeight;
 }
