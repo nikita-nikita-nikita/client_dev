@@ -9,10 +9,12 @@ const socket = io.connect('https://alcochat.herokuapp.com/');
 
 const default_textarea = $('textarea').height();
 
-const names = ['Василий', 'Лёха', 'Олег', 'Андрей', 'Петр', 'Санек', 'Володя',  'Стасян', 'Витёк', 'Игорян']
-const name = names[Math.floor(Math.random()*names.length)];
-const ava = Math.ceil(Math.random()*9);
+let user_id;
 
+if(localStorage.getItem("user_id") == undefined){
+    localStorage.setItem("user_id", Math.ceil(Math.random()*999999));
+}
+user_id = localStorage.getItem("user_id");
 
 socket.on('add mess', function(data) {
     if(data.name != name){
@@ -20,10 +22,10 @@ socket.on('add mess', function(data) {
     }
 });
 
-socket.on('all mess', function(data) {
+socket.on('all mess', function(data, users){
     $('.chat').empty();
     for(let i in data){
-        apppend_message(data[i].mess, data[i].name, data[i].ava, my = (data[i].name==name));
+        apppend_message(data[i].mess, users[data[i].id].name, users[data[i].id].ava, my = (data[i].id==user_id));
     }
 });
 
@@ -34,7 +36,7 @@ $('.send-message-form').submit((event) => {
     event.preventDefault();
     if(!$('.send-message-textarea').val()) return;
     //apppend_message($('.send-message-textarea').val(), name, ava);
-    socket.emit('send mess', {mess: $('.send-message-textarea').val(), name: name, ava: ava});
+    socket.emit('send mess', {mess: $('.send-message-textarea').val(), id: user_id});
     $('.send-message-textarea').val('');
     $('textarea').height(default_textarea);
 });
@@ -45,7 +47,7 @@ function apppend_message(text, name, ava, my=true){
         '                <img width="50" height="50"\n' +
         '                     src="bomji/'+ava+'.jpg" alt="avatar">\n' +
         '                <div class="content"><h3 style="color: yellow">'+name+'</h3>\n' +
-        '                    <p>'+text.replace('<', '&lt').replace('>','&gt')+'</p></div>\n' +
+        '                    <p>'+text.split('<').join('&lt').split('>').join('&gt')+'</p></div>\n' +
         '            </section>');
     const block=document.querySelector('.chat');
     block.scrollTop = block.scrollHeight;
