@@ -1,4 +1,5 @@
 const socket = io.connect('https://alcochat.herokuapp.com/');
+import paint from "./paint.js";
 //const socket = io.connect('localhost:9000');
 
 // $form.submit(function(event) {
@@ -16,18 +17,27 @@ if(localStorage.getItem("user_id") == undefined){
 }
 user_id = localStorage.getItem("user_id");
 
-socket.on('add mess', function(data) {
-    if(data.name != name){
-        apppend_message(data.mess, data.name, data.ava, my = false);
-    }
-});
+// socket.on('add mess', function(data) {
+//     if(data.name != name){
+//         apppend_message(data.mess, data.name, data.ava, my = false);
+//     }
+// });
 
 socket.on('all mess', function(data, users){
     $('.chat').empty();
     for(let i in data){
-        apppend_message(data[i].mess, users[data[i].id].name, users[data[i].id].ava, my = (data[i].id==user_id));
+        apppend_message(data[i].mess, users[data[i].id].name, users[data[i].id].ava, data[i].id==user_id);
     }
 });
+
+socket.on("send figure", (data) => {
+    if(data.actionType === "brush") {
+        const oldColor = paint.color;
+        paint.color = data.color;
+        paint.drawByCord(data.cords);
+        paint.color = oldColor;
+    }else paint.eraseByCord(data.cords);
+})
 
 let block=document.querySelector('.chat');
 block.scrollTop = block.scrollHeight;
@@ -52,3 +62,5 @@ function apppend_message(text, name, ava, my=true){
     const block=document.querySelector('.chat');
     block.scrollTop = block.scrollHeight;
 }
+
+export default socket;

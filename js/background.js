@@ -1,7 +1,6 @@
 import {TOOL_BRUSH, TOOL_ERASER} from "./tools.js";
-import Paint from "./paint.js";
+import paint from "./paint.js";
 
-let paint = new Paint();
 paint.activeTool = TOOL_BRUSH;
 paint.init();
 

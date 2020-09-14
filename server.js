@@ -10,9 +10,9 @@ app.get('/', function(request, response) {
     response.sendFile(__dirname + '/index.html');
 });
 
+const PORT = process.env.PORT||9000;
 
-
-server.listen(process.env.PORT||9000);
+server.listen(PORT, () => console.log(`server started on ${PORT}`));
 
 const connections = [];
 const messages = [];
@@ -48,5 +48,7 @@ io.sockets.on('connection', (socket) => {
         //io.sockets.emit('add mess', {mess: data.mess, name: data.name, ava: data.ava});
         io.sockets.emit("all mess", messages, users);
     });
+
+    socket.on("add figure", data => io.sockets.emit("send figure", data, users))
 
 });
