@@ -11,6 +11,7 @@ app.get('/', function(request, response) {
 });
 
 
+
 server.listen(process.env.PORT||9000);
 
 const connections = [];
@@ -31,7 +32,8 @@ io.sockets.on('connection', (socket) => {
 
     socket.on('send mess', (data) => {
         messages.push(data);
-        io.sockets.emit('add mess', {mess: data.mess, name: data.name, ava: data.ava});
+        //io.sockets.emit('add mess', {mess: data.mess, name: data.name, ava: data.ava});
+        io.sockets.emit("all mess", messages);
     });
 
 });
