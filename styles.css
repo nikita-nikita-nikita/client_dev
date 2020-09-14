@@ -162,6 +162,7 @@ header h2:hover {
 
 .message .content p {
     font-family: "Roboto", serif;
+    word-wrap: break-word;
     font-size: 16px;
 }
 
