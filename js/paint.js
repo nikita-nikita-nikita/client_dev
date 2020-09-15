@@ -1,7 +1,6 @@
 import {TOOL_BRUSH, TOOL_ERASER} from "./tools.js";
 import socket from "./socket.js";
 
-
 class Paint {
     constructor() {
         this.aside = document.querySelector("aside");
@@ -53,9 +52,9 @@ class Paint {
     }
 
     drawOrErase = ({figure, actionType, color}) => {
-        this.context.beginPath();
+        console.log("draw or erase")
         if (actionType === "brush") {
-            const oldColor = paint.color;
+            const oldColor = this.color;
             this.color = color;
             this.drawByCord(figure);
             this.color = oldColor;

@@ -1,6 +1,6 @@
-const socket = io.connect('https://alcochat.herokuapp.com/');
+//const socket = io.connect('https://alcochat.herokuapp.com/');
+const socket = io.connect('localhost:9000');
 import paint from "./paint.js";
-// const socket = io.connect('localhost:9000');
 
 // $form.submit(function(event) {
 //     event.preventDefault();
@@ -32,8 +32,12 @@ socket.on('all mess', function(data, users){
 
 
 socket.on("send figure", (data) => {
-    if(data.userId !== window.localStorage.getItem("user_id")) return;
-    if(paint.isDrawing) paint.addToStack(data);
+    console.log(paint.isDrawing)
+    if(data.userId === window.localStorage.getItem("user_id")) return;
+    if(paint.isDrawing) {
+        console.log("added to stack");
+        paint.addToStack(data);
+    }
     else paint.drawOrErase(data);
 });
 
