@@ -52,7 +52,7 @@ class Paint {
     }
 
     drawOrErase = ({figure, actionType, color}) => {
-        console.log("draw or erase")
+        this.context.beginPath();
         if (actionType === "brush") {
             const oldColor = this.color;
             this.color = color;
@@ -63,8 +63,10 @@ class Paint {
     }
 
     drawFromStack = () =>{
+        this.context.beginPath();
         if (!this._figuresStack.length) return;
         this._figuresStack.forEach(figure => this.drawOrErase(figure));
+        this.context.beginPath();
     }
 
     onMouseUp() {
