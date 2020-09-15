@@ -30,20 +30,15 @@ socket.on('all mess', function(data, users){
     }
 });
 
-const drawOrErase = ({figure, actionType, color}) => {
-    if (actionType === "brush") {
-        const oldColor = paint.color;
-        paint.color = color;
-        paint.drawByCord(figure);
-        paint.color = oldColor;
-    } else paint.eraseByCord(figure);
-}
 
 socket.on("send figure", (data) => {
-    if(data.userId !== window.localStorage.getItem("user_id")) drawOrErase(data);
+    if(data.userId !== window.localStorage.getItem("user_id")) return;
+    if(paint.isDrawing) paint.addToStack(data);
+    else paint.drawOrErase(data);
 });
 
-socket.on("all figures", (data) => data.forEach(figure => drawOrErase(figure)));
+socket.on("all figures", (data) => data.forEach(figure => paint.drawOrErase(figure)));
+
 socket.on("erase all", (id) => {
     if(window.localStorage.getItem("user_id")!==id) paint.eraseAllAction();
 });

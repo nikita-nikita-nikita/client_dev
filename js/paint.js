@@ -12,8 +12,10 @@ class Paint {
         this.isDrawing = false;
         this.actionType = null;
         this.cords = [];
+        this._figuresStack = [];
     }
 
+    addToStack = (figure) => this._figuresStack.push(figure);
 
     set activeTool(tool) {
         this.tool = tool;
@@ -50,12 +52,30 @@ class Paint {
         }
     }
 
+    drawOrErase = ({figure, actionType, color}) => {
+        this.context.beginPath();
+        if (actionType === "brush") {
+            const oldColor = paint.color;
+            this.color = color;
+            this.drawByCord(figure);
+            this.color = oldColor;
+        } else this.eraseByCord(figure);
+        this.context.beginPath();
+    }
+
+    drawFromStack = () =>{
+        if (!this._figuresStack.length) return;
+        this._figuresStack.forEach(figure => this.drawOrErase(figure));
+    }
+
     onMouseUp() {
         socket.emit("add figure", {
             figure: this.cords,
             color: this.color,
             actionType:this.actionType,
-            userId: window.localStorage.getItem("user_id")});
+            userId: window.localStorage.getItem("user_id")
+        });
+        this.drawFromStack();
         this.actionType = null;
         this.cords = [];
         this.isDrawing = false;
@@ -101,18 +121,14 @@ class Paint {
     }
 
     drawByCord = (cords) => {
-        this.context.beginPath();
         cords.forEach(cord => {
             this._drawAction(cord);
         });
-        this.context.beginPath();
     };
     eraseByCord = (cords) => {
-        this.context.beginPath();
         cords.forEach(cord => {
             this._eraseAction(cord);
         });
-        this.context.beginPath();
     };
 
 }
