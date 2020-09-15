@@ -40,12 +40,13 @@ const drawOrErase = ({figure, actionType, color}) => {
 }
 
 socket.on("send figure", (data) => {
-    if(data.userId !== window.localStorage.getItem("user_id")) {
-        drawOrErase(data);
-    }
+    if(data.userId !== window.localStorage.getItem("user_id")) drawOrErase(data);
 });
 
-socket.on("all figures", (data) => data.forEach(figure => drawOrErase(data)));
+socket.on("all figures", (data) => data.forEach(figure => drawOrErase(figure)));
+socket.on("erase all", (id) => {
+    if(window.localStorage.getItem("user_id")!==id) paint.eraseAllAction();
+});
 
 let block=document.querySelector('.chat');
 block.scrollTop = block.scrollHeight;

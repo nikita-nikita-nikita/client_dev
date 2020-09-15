@@ -54,6 +54,10 @@ io.sockets.on('connection', (socket) => {
     socket.on("add figure", data => {
         figures.push(data);
         io.sockets.emit("send figure", data, users)
+    });
+    socket.on("erase all", (id) => {
+        figures.splice(0, figures.length);
+        io.sockets.emit("erase all", id, users);
     })
 
 });

@@ -92,15 +92,25 @@ class Paint {
         this.cords.push({clientX, clientY});
     }
 
+    eraseAllAction = () => this.context.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
     eraseAll = () => {
-        this.context.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        this.eraseAllAction();
+        socket.emit("erase all", window.localStorage.getItem("user_id"));
     }
 
-    drawByCord = (cords) => cords.forEach(cord => {
-        console.log(cord);
-        this._drawAction(cord)
-    });
-    eraseByCord = (cords) => cords.forEach(cord => this._eraseAction(cord));
+    drawByCord = (cords) => {
+        cords.forEach(cord => {
+            this._drawAction(cord);
+        });
+        this.context.beginPath();
+    };
+    eraseByCord = (cords) => {
+        cords.forEach(cord => {
+            this._eraseAction(cord);
+        });
+        this.context.beginPath();
+    };
 
 }
 
