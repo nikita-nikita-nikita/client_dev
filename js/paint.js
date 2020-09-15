@@ -33,6 +33,7 @@ class Paint {
     }
 
     onMouseDown(e) {
+        console.log("mdwn")
         this.context.beginPath();
         this.isDrawing = true;
         switch (this.tool) {

@@ -85,6 +85,7 @@ main {
     position: relative;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 /*header*/
@@ -115,7 +116,6 @@ header h2:hover {
     width: 600px;
     flex-grow: 1;
     position: relative;
-    margin: 0 auto;
 }
 
 /*chat*/
@@ -260,9 +260,14 @@ footer {
     margin-top: 50px;
 }
 
+.z-index{
+    z-index: 9999;
+}
+
 /*media*/
 @media screen and (max-width: 500px) {
     .chat-container {
         width: 95%;
     }
 }
+
