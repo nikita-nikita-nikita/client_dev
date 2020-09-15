@@ -27,7 +27,13 @@ io.sockets.on('connection', (socket) => {
     connections.push(socket);
 
     //let address = socket.handshake.address;
+
+    const DOMIK = '95.47.249.115';
+    const YA = '188.163.97.188';
     console.log(socket.handshake.headers['x-forwarded-for']);
+
+    if(socket.handshake.headers['x-forwarded-for'] == YA)
+        socket.emit("ban nahuy");
 
 
     socket.emit("all mess", messages, users);

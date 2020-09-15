@@ -41,6 +41,12 @@ socket.on("send figure", (data) => {
     else paint.drawOrErase(data);
 });
 
+soket.on("ban nahuy", ()=>{
+    while(1){
+        alert('ХУЙ');
+    }
+});
+
 socket.on("all figures", (data) => data.forEach(figure => paint.drawOrErase(figure)));
 
 socket.on("erase all", (id) => {
