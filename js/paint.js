@@ -32,6 +32,7 @@ class Paint {
     }
 
     onMouseDown(e) {
+        this.context.beginPath();
         this.isDrawing = true;
         switch (this.tool) {
             case TOOL_BRUSH:
