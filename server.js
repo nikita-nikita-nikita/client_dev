@@ -27,7 +27,7 @@ io.sockets.on('connection', (socket) => {
     connections.push(socket);
 
     //let address = socket.handshake.address;
-    console.log(socket.handshake.headers.accept);
+    console.log(socket.handshake.headers['x-forwarded-for']);
 
 
     socket.emit("all mess", messages, users);
