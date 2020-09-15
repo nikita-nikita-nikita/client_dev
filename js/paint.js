@@ -100,12 +100,14 @@ class Paint {
     }
 
     drawByCord = (cords) => {
+        this.context.beginPath();
         cords.forEach(cord => {
             this._drawAction(cord);
         });
         this.context.beginPath();
     };
     eraseByCord = (cords) => {
+        this.context.beginPath();
         cords.forEach(cord => {
             this._eraseAction(cord);
         });
