@@ -1,6 +1,6 @@
-const socket = io.connect('https://alcochat.herokuapp.com/');
+//const socket = io.connect('https://alcochat.herokuapp.com/');
 import paint from "./paint.js";
-//const socket = io.connect('localhost:9000');
+const socket = io.connect('localhost:9000');
 
 // $form.submit(function(event) {
 //     event.preventDefault();
@@ -34,9 +34,9 @@ socket.on("send figure", (data) => {
     if(data.actionType === "brush") {
         const oldColor = paint.color;
         paint.color = data.color;
-        paint.drawByCord(data.cords);
+        paint.drawByCord(data.figure);
         paint.color = oldColor;
-    }else paint.eraseByCord(data.cords);
+    }else paint.eraseByCord(data.figure);
 })
 
 let block=document.querySelector('.chat');

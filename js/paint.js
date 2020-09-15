@@ -62,7 +62,6 @@ class Paint {
         this.context.lineWidth = 5;
         this.context.lineCap = "round";
         this.context.strokeStyle = this.color;
-
         this.context.lineTo(e.clientX, e.clientY);
         this.context.stroke();
         this.context.beginPath();
@@ -93,7 +92,10 @@ class Paint {
         this.context.clearRect(0, 0, window.innerWidth, window.innerHeight);
     }
 
-    drawByCord = (cords) => cords.forEach(cord => this._drawAction(cord));
+    drawByCord = (cords) => cords.forEach(cord => {
+        console.log(cord);
+        this._drawAction(cord)
+    });
     eraseByCord = (cords) => cords.forEach(cord => this._eraseAction(cord));
 
 }
