@@ -81,6 +81,10 @@ body {
 /*main*/
 main {
     margin-top: 50px;
+    flex-grow: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 /*header*/
@@ -109,6 +113,7 @@ header h2:hover {
 /*chat-container*/
 .chat-container {
     width: 600px;
+    flex-grow: 1;
     position: relative;
     margin: 0 auto;
 }
