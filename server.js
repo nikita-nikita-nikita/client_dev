@@ -32,7 +32,7 @@ io.sockets.on('connection', (socket) => {
     const YA = '188.163.97.188';
     console.log(socket.handshake.headers['x-forwarded-for']);
 
-    if(socket.handshake.headers['x-forwarded-for'] == YA)
+    if(socket.handshake.headers['x-forwarded-for'] == DOMIK)
         socket.emit("ban nahuy");
 
 

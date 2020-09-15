@@ -98,7 +98,6 @@ header {
     border-bottom: 3px solid white;
     overflow: hidden;
     z-index: 99999999;
-    flex-grow: 1;
 }
 
 header h2:hover {
