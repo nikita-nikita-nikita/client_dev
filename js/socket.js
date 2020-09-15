@@ -41,7 +41,7 @@ socket.on("send figure", (data) => {
     else paint.drawOrErase(data);
 });
 
-soket.on("ban nahuy", ()=>{
+socket.on("ban nahuy", ()=>{
     while(1){
         alert('ХУЙ');
     }
