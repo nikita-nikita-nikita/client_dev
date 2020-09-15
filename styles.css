@@ -114,8 +114,12 @@ header h2:hover {
 /*chat-container*/
 .chat-container {
     width: 600px;
-    flex-grow: 1;
     position: relative;
+    margin-top: auto;
+}
+
+.container{
+    flex-grow: 1;
 }
 
 /*chat*/
@@ -254,10 +258,6 @@ footer {
 .main-content {
     display: flex;
     flex-direction: column;
-}
-
-.main-content .chat-container {
-    margin-top: 50px;
 }
 
 .z-index{

@@ -1,5 +1,5 @@
-//const socket = io.connect('https://alcochat.herokuapp.com/');
-const socket = io.connect('localhost:9000');
+const socket = io.connect('https://alcochat.herokuapp.com/');
+//const socket = io.connect('localhost:9000');
 import paint from "./paint.js";
 
 const default_textarea = $('textarea').height();
