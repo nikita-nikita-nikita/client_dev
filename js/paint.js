@@ -50,7 +50,11 @@ class Paint {
     }
 
     onMouseUp() {
-        socket.emit("add figure", {figure: this.cords, color: this.color, actionType:this.actionType});
+        socket.emit("add figure", {
+            figure: this.cords,
+            color: this.color,
+            actionType:this.actionType,
+            userId: window.localStorage.getItem("user_id")});
         this.actionType = null;
         this.cords = [];
         this.isDrawing = false;

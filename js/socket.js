@@ -30,14 +30,22 @@ socket.on('all mess', function(data, users){
     }
 });
 
-socket.on("send figure", (data) => {
-    if(data.actionType === "brush") {
+const drawOrErase = ({figure, actionType, color}) => {
+    if (actionType === "brush") {
         const oldColor = paint.color;
-        paint.color = data.color;
-        paint.drawByCord(data.figure);
+        paint.color = color;
+        paint.drawByCord(figure);
         paint.color = oldColor;
-    }else paint.eraseByCord(data.figure);
-})
+    } else paint.eraseByCord(figure);
+}
+
+socket.on("send figure", (data) => {
+    if(data.userId !== window.localStorage.getItem("user_id")) {
+        drawOrErase(data);
+    }
+});
+
+socket.on("all figures", (data) => data.forEach(figure => drawOrErase(data)));
 
 let block=document.querySelector('.chat');
 block.scrollTop = block.scrollHeight;

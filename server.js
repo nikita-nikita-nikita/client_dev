@@ -16,6 +16,7 @@ server.listen(PORT, () => console.log(`server started on ${PORT}`));
 
 const connections = [];
 const messages = [];
+const figures = [];
 const users = {};
 const names = ['Василий', 'Лёха', 'Олег', 'Андрей', 'Петр', 'Санек', 'Володя',  'Стасян', 'Витёк', 'Игорян', 'Семен']
 
@@ -27,6 +28,7 @@ io.sockets.on('connection', (socket) => {
 
 
     socket.emit("all mess", messages, users);
+    socket.emit("all figures", figures);
 
     socket.on('disconnect', (data) => {
         connections.splice(connections.indexOf(socket), 1);
@@ -49,6 +51,9 @@ io.sockets.on('connection', (socket) => {
         io.sockets.emit("all mess", messages, users);
     });
 
-    socket.on("add figure", data => io.sockets.emit("send figure", data, users))
+    socket.on("add figure", data => {
+        figures.push(data);
+        io.sockets.emit("send figure", data, users)
+    })
 
 });
