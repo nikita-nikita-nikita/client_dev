@@ -26,6 +26,9 @@ io.sockets.on('connection', (socket) => {
     // Добавление нового соединения в массив
     connections.push(socket);
 
+    //let address = socket.handshake.address;
+    console.log(socket);
+
 
     socket.emit("all mess", messages, users);
     socket.emit("all figures", figures);
