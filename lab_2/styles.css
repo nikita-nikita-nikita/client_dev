@@ -74,25 +74,35 @@ img {
 
 body {
     background: url("double-bubble-dark.png");
+    display: flex;
+    flex-direction: column;
 }
 
 /*main*/
 main {
     margin-top: 50px;
+    flex-grow: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /*header*/
 header {
+    display: flex;
+    position: relative;
     background-color: #FF3758;
     text-align: center;
     min-height: 80px;
     font-size: 2rem;
-    display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     box-shadow: 0 0 5px 3px black;
     border-bottom: 3px solid white;
+    overflow: hidden;
+    z-index: 99999999;
 }
 
 header h2:hover {
@@ -105,7 +115,11 @@ header h2:hover {
 .chat-container {
     width: 600px;
     position: relative;
-    margin: 0 auto;
+    margin-top: auto;
+}
+
+.container{
+    flex-grow: 1;
 }
 
 /*chat*/
@@ -232,15 +246,23 @@ header h2:hover {
 footer {
     display: flex;
     background-color: #ff3758;
-    margin: 50px 0 0 0;
     min-height: 50px;
     justify-content: center;
     align-items: center;
     border-top: 3px solid white;
-
+    position: relative;
+    flex-grow: 0;
 }
 
+/*main content*/
+.main-content {
+    display: flex;
+    flex-direction: column;
+}
 
+.z-index{
+    z-index: 9999;
+}
 
 /*media*/
 @media screen and (max-width: 500px) {
@@ -248,3 +270,4 @@ footer {
         width: 95%;
     }
 }
+

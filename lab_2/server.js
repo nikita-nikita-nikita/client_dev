@@ -10,28 +10,63 @@ app.get('/', function(request, response) {
     response.sendFile(__dirname + '/index.html');
 });
 
+const PORT = process.env.PORT||9000;
 
-server.listen(9000);
+server.listen(PORT, () => console.log(`server started on ${PORT}`));
 
 const connections = [];
 const messages = [];
+const figures = [];
+const users = {};
+const names = ['Василий', 'Лёха', 'Олег', 'Андрей', 'Петр', 'Санек', 'Володя',  'Стасян', 'Витёк', 'Игорян', 'Семен']
+
 
 io.sockets.on('connection', (socket) => {
     console.log("Успешное соединение");
     // Добавление нового соединения в массив
     connections.push(socket);
 
+    //let address = socket.handshake.address;
 
-    socket.emit("all mess", messages);
+    const DOMIK = '95.47.249.115';
+    const YA = '188.163.97.188';
+    console.log(socket.handshake.headers['x-forwarded-for']);
 
-    socket.on('disconnect', function(data) {
+    if(socket.handshake.headers['x-forwarded-for'] == DOMIK)
+        socket.emit("ban nahuy");
+
+
+    socket.emit("all mess", messages, users);
+    socket.emit("all figures", figures);
+
+    socket.on('disconnect', (data) => {
         connections.splice(connections.indexOf(socket), 1);
         console.log("Отключились");
     });
 
-    socket.on('send mess', function(data) {
+    socket.on('send mess', (data) => {
         messages.push(data);
-        io.sockets.emit('add mess', {mess: data.mess, name: data.name, ava: data.ava});
+
+        if(users[data.id] == undefined){
+            users[data.id] = {
+                name: names[Math.floor(Math.random()*names.length)],
+                ava: Math.ceil(Math.random()*9)
+            };
+        }
+
+
+
+        //io.sockets.emit('add mess', {mess: data.mess, name: data.name, ava: data.ava});
+        io.sockets.emit("all mess", messages, users);
     });
+
+    socket.on("add figure", data => {
+        figures.push(data);
+        io.sockets.emit("send figure", data, users)
+    });
+    socket.on("erase all", (id) => {
+        figures.splice(0, figures.length);
+        io.sockets.emit("erase all", id, users);
+    })
 
 });
