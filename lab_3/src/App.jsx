@@ -4,6 +4,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import store, {history} from "./store";
 import { Provider } from 'react-redux';
 import {ConnectedRouter} from "connected-react-router";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => (
     <ErrorBoundary>
