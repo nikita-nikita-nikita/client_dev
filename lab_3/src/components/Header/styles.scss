@@ -1,0 +1,28 @@
+header{
+  height: 65px;
+  nav {
+    height: 100%;
+    .navbar-brand{
+      font-size: 1.5rem;
+    }
+    .navbar-nav {
+      a {
+        transition: .4s;
+        color: white!important;
+        &:hover {
+          background-color: rgba(158, 158, 158, 0.4);
+        }
+        &.invert{
+          border: 1px solid black;
+          color: black!important;
+          background-color: white!important;
+          &:hover {
+            color: white!important;
+            background-color: black!important;
+            border: 1px solid white;
+          }
+        }
+      }
+    }
+  }
+}
