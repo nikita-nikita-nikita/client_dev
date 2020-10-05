@@ -1,0 +1,14 @@
+[
+	{
+		audioUrl: "",
+		imgUrl: "",
+		tags: [],
+		bpm: 0,
+		isFree: false,
+		time: "",
+		loadTime: "",
+		color: "red",
+		name: "",
+		scale: 0
+	},
+]

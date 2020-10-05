@@ -2,17 +2,18 @@ import React from "react";
 import Header from "../../components/Header";
 import {
     Switch,
-    Route
+    Route,
+    BrowserRouter as Router
 } from "react-router-dom";
 import MainPage from "../MainPageContainer";
 
 const Routing = () => (
-    <>
+    <Router>
         <Header/>
         <Switch>
-            <Route path="/" component={MainPage}/>
+            <Route exact path="/" component={MainPage}/>
         </Switch>
-    </>
+    </Router>
 );
 
 export default Routing;
