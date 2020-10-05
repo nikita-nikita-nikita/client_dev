@@ -1,13 +1,14 @@
 import React from "react";
 import BigSearch from "../../components/bigSearch";
 import TracksTable from "../../components/tracksTable";
-import Tracks from "../../services/tracksFromJSON"
+import PriceCards from "../../components/priceCards";
 
 const MainPage = () =>
     (
         <>
             <BigSearch/>
-            <TracksTable tracks={[23,3243]}/>
+            <TracksTable tracks={[23, 3243]}/>
+            <PriceCards/>
         </>
     );
 

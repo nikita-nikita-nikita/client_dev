@@ -16,12 +16,14 @@ header {
 
                 &:hover {
                     background-color: rgba(158, 158, 158, 0.4);
+                    border-radius: 2px;
                 }
 
                 &.invert {
                     border: 1px solid black;
                     color: black !important;
                     background-color: white !important;
+                    border-radius: 2px;
 
                     &:hover {
                         color: white !important;
