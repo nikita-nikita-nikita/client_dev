@@ -1,12 +1,33 @@
 td{
-    border-bottom: 2px solid #c9c9c9;
-    height: 70px;
+    border-bottom: 1px solid #c9c9c9;
+    height: 50px;
     text-align: center;
     font-weight: bold;
 }
 
 .td-img{
+    width: 50px;
     img{
         height: 100%;
     }
+}
+
+.cart_button{
+    border: 0;
+    padding: 7px;
+    background: #c9c9c9;
+    font-weight: bold;
+    border-radius: 3px;
+
+    &:hover{
+        color: #c9c9c9;
+        background: #2a2a2a;
+    }
+}
+
+.tag{
+    border: 1px solid #454545;
+    padding: 3px;
+    margin: 2px;
+    border-radius: 3px;
 }
