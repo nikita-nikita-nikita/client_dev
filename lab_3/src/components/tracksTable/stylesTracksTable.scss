@@ -2,8 +2,7 @@
     table{
         width: 90%;
         max-width: 800px;
-        margin: 0 auto;
-        margin-top: 20px;
+        margin: 0 auto 20px auto;
 
         tr:not(:first-child){
             &:hover{
@@ -13,14 +12,14 @@
         }
 
 
+        .table-head{
+            td{
+                height: 30px;
+                color: #8b8b8b;
+                font-weight: normal;
+                border: 0;
+            }
+        }
     }
 }
 
-.table-head{
-    td{
-        height: 30px;
-        color: #8b8b8b;
-        font-weight: normal;
-        border: 0;
-    }
-}

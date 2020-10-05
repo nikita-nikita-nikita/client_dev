@@ -1,15 +1,13 @@
 import React from "react";
 import "./stylesTracksTable.scss";
-import Track from "./track"
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faShoppingCart} from "@fortawesome/free-solid-svg-icons";
+import Track from "./track";
 
 const TracksTable = ({tracks}) =>
     (
         <div className="tracks-table">
             <table cellSpacing={0}>
                 <tr className="table-head">
-                    <td></td>
+                    <td/>
                     <td>
                         TITLE
                     </td>
@@ -22,7 +20,7 @@ const TracksTable = ({tracks}) =>
                     <td>
                         TAGS
                     </td>
-                    <td></td>
+                    <td/>
                 </tr>
                 <Track/>
                 <Track/>
