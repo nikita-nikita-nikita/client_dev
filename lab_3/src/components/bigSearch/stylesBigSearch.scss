@@ -1,0 +1,28 @@
+.big-search{
+  // logo
+  .logo{
+    text-align: center;
+    color: white;
+    font-size: 7rem;
+  }
+  // search
+  .search{
+    margin: 0 auto;
+    text-align: center;
+    input{
+      border: 1px solid white;
+      padding: 10px 20px;
+      background: black;
+      color: white;
+      height: 50px;
+      width: 300px;
+      font-size: 1.5rem;
+      &:hover{
+        outline: none;
+      }
+    }
+  }
+  color: white;
+  padding: 80px;
+  background-color: black;
+}
