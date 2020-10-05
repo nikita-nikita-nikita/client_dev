@@ -9,14 +9,30 @@
   .search{
     margin: 0 auto;
     text-align: center;
+    position: relative;
+    width: 40%;
     input{
       border: 1px solid white;
+      width: 100%;
       padding: 10px 20px;
       background: black;
       color: white;
-      height: 50px;
-      width: 300px;
+      height: 70px;
       font-size: 1.5rem;
+      &:hover{
+        outline: none;
+      }
+    }
+    .search-magnifier-button{
+      width: 70px;
+      height: 70px;
+      background: none;
+      position: absolute;
+      top:0;
+      right: 0;
+      border: none;
+      color: white;
+      font-size: 2rem;
       &:hover{
         outline: none;
       }
