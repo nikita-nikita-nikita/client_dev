@@ -19,10 +19,12 @@ const Track = () =>
                 0
             </td>
             <td>
-                #lol #kek #cheburek
+                <b className="tag">#lol</b>
+                <b className="tag">#kek</b>
+                <b className="tag">#cheburek</b>
             </td>
             <td>
-                <button><FontAwesomeIcon icon={faShoppingCart}/> ADD</button>
+                <button className="cart_button"><FontAwesomeIcon icon={faShoppingCart}/> ADD</button>
             </td>
         </tr>
     );
