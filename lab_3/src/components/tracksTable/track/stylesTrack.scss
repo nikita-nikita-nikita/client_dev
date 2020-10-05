@@ -32,9 +32,10 @@ td{
 
 .tag{
     border: 1px solid #CCCCCC;
-    padding: 3px;
+    padding: 3px 8px;
     margin: 2px;
     border-radius: 3px;
+    letter-spacing: 2px!important;
     &:hover{
         text-decoration: underline;
     }
