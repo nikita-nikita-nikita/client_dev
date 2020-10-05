@@ -7,24 +7,26 @@ const Track = () =>
     (
         <tr>
             <td className="td-img">
-                <img src="http://placehold.it/100x100"/>
+                <img src="https://i.imgur.com/W6MT8iR.png"/>
             </td>
-            <td>
+            <td className="title">
                 Title
             </td>
-            <td>
+            <td className="time">
                 3:14
             </td>
-            <td>
+            <td className="bpm">
                 0
             </td>
-            <td>
+            <td className="tags">
                 <b className="tag">#lol</b>
                 <b className="tag">#kek</b>
                 <b className="tag">#cheburek</b>
             </td>
-            <td>
-                <button className="cart_button"><FontAwesomeIcon icon={faShoppingCart}/> ADD</button>
+            <td className="add-to-cart">
+                <button className="cart_button">
+                    <FontAwesomeIcon icon={faShoppingCart}/>ADD
+                </button>
             </td>
         </tr>
     );

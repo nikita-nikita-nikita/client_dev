@@ -5,19 +5,19 @@ import Track from "./track";
 const TracksTable = ({tracks}) =>
     (
         <div className="tracks-table">
-            <table cellSpacing={0}>
+            <table cellSpacing={0} id="top-10-track-table">
                 <tr className="table-head">
                     <td/>
-                    <td>
+                    <td className="title">
                         TITLE
                     </td>
-                    <td>
+                    <td className="time">
                         TIME
                     </td>
-                    <td>
+                    <td className="bpm">
                         BPM
                     </td>
-                    <td>
+                    <td className="tags">
                         TAGS
                     </td>
                     <td/>

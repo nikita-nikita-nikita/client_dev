@@ -3,14 +3,29 @@
         width: 90%;
         max-width: 800px;
         margin: 0 auto 20px auto;
-
-        tr:not(:first-child){
-            &:hover{
-                cursor: pointer;
-                background: #e0e0e0;
+        tr {
+            border-bottom: 1px solid #c9c9c9;
+            &:not(:first-child) {
+                &:hover {
+                    cursor: pointer;
+                    background: #e0e0e0;
+                }
+            }
+            td{
+                text-align: left;
+                &.title{
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    min-width: 200px;
+                }
+                &.time{
+                    min-width: 50px;
+                }
+                &.tags{
+                    font-weight: lighter;
+                }
             }
         }
-
 
         .table-head{
             td{
@@ -20,6 +35,12 @@
                 border: 0;
             }
         }
+    }
+}
+
+@media screen and (min-width: 1920px){
+    #top-10-track-table{
+        max-width: 1200px;
     }
 }
 

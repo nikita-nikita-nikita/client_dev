@@ -1,14 +1,19 @@
+$heightForLarge : 60px;
+$heightForNotLarge : 50px;
+
 td{
-    border-bottom: 1px solid #c9c9c9;
     height: 50px;
     text-align: center;
     font-weight: bold;
 }
 
 .td-img{
-    width: 50px;
+    height: $heightForNotLarge;
+    width: $heightForNotLarge;
     img{
         height: 100%;
+        width: 100%;
+        object-fit: cover;
     }
 }
 
@@ -26,8 +31,18 @@ td{
 }
 
 .tag{
-    border: 1px solid #454545;
+    border: 1px solid #CCCCCC;
     padding: 3px;
     margin: 2px;
     border-radius: 3px;
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+@media screen and (min-width: 1920px){
+    .td-img{
+        width: $heightForLarge;
+        height: $heightForLarge;
+    }
 }
