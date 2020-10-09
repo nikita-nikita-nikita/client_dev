@@ -18,7 +18,7 @@ const TracksTable = () =>
                     <td className="bpm">
                         BPM
                     </td>
-                    <td className="tags">
+                    <td>
                         TAGS
                     </td>
                     <td/>
