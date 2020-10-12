@@ -1,7 +1,22 @@
 *{
   font-family: 'Poppins', sans-serif!important;
 }
-/*global classes*/
+/* global classes */
 .bg-black{
   background-color: black!important;
+}
+
+
+/* Invert button*/
+.invert-button{
+  transition: .2s;
+  background-color: white;
+  color: black;
+  border: 1px solid white;
+}
+
+.invert-button:hover{
+  background-color: black;
+  color: white;
+  border: 1px solid white;
 }
