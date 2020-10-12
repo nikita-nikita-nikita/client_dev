@@ -62,13 +62,14 @@
 
 @media (max-width: 960px){
   .contact-form{
+    width: 100%;
     .contact-info-block{
       flex-direction: column;
       justify-content: flex-start;
       margin: 0;
     }
     .contact-input{
-      width: 100%!important;
+      width: 100%;
     }
     .contact-form{
       width: 100%;
