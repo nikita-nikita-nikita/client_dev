@@ -1,8 +1,9 @@
 import React from "react";
 import "./stylesTracksTable.scss";
 import Track from "./track";
+import tracks from '../../data/beats.json';
 
-const TracksTable = ({tracks}) =>
+const TracksTable = () =>
     (
         <div className="tracks-table">
             <table cellSpacing={0} id="top-10-track-table">
@@ -17,13 +18,12 @@ const TracksTable = ({tracks}) =>
                     <td className="bpm">
                         BPM
                     </td>
-                    <td className="tags">
+                    <td>
                         TAGS
                     </td>
                     <td/>
                 </tr>
-                <Track/>
-                <Track/>
+                {tracks.map(track => <Track track={track}/>)}
             </table>
         </div>
     );

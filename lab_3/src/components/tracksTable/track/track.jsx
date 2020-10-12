@@ -2,26 +2,25 @@ import React from "react";
 import "./stylesTrack.scss";
 import {faShoppingCart} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import tracks from "../../../data/beats.json";
 
-const Track = () =>
+const Track = (track) =>
     (
         <tr>
             <td className="td-img">
-                <img src="https://i.imgur.com/W6MT8iR.png" alt="sasi, ne budet tebe pik4i"/>
+                <img src={track.track.imgUrl}/>
             </td>
             <td className="title">
-                Title
+                {track.track.name}
             </td>
             <td className="time">
-                3:14
+                {track.track.time}
             </td>
             <td className="bpm">
-                0
+                {track.track.bpm}
             </td>
             <td className="tags">
-                <b className="tag">#lol</b>
-                <b className="tag">#kek</b>
-                <b className="tag">#cheburek</b>
+                {track.track.tags.map(tag => <b className="tag">#{tag}</b>)}
             </td>
             <td className="add-to-cart">
                 <button className="cart_button">
