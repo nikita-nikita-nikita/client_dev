@@ -1,26 +1,32 @@
 import React from 'react';
 import { Card, Icon, Image } from 'semantic-ui-react';
 import "./priceCards.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircle } from "@fortawesome/free-solid-svg-icons";
 
 const PriceCards = () => (
-    <Card>
-        <div className="head text">
-            POPULAR
+    <Card className="card">
+        <div className="head">
+            <p>POPULAR</p>
+            <div className="license-type">
+                Unlimited Lease
+            </div>
+            <div className="price">
+                $219.99
+            </div>
+            <div className="per-unit">
+                PER UNIT
+            </div>
         </div>
-        <Image src='https://cdn.vox-cdn.com/thumbor/NBAk9HTZ9NheDTqn3z_3tLrbVMY=/0x0:1863x1242/1200x800/filters:focal(783x472:1081x770)/cdn.vox-cdn.com/uploads/chorus_image/image/65206643/IMG_0118.0.jpeg' wrapped ui={false} />
-        <Card.Content>
-            <Card.Header>Matthew</Card.Header>
-            <Card.Meta>
-                <span className='date'>Joined in 2015</span>
-            </Card.Meta>
-            <Card.Description>
-                Matthew is a musician living in Nashville.
-            </Card.Description>
-        </Card.Content>
-        <Card.Content extra>
-                <Icon name='user' />
-                22 Friends
-        </Card.Content>
+        <div className="description">
+
+            <p><FontAwesomeIcon icon={faCircle}/>Untagged Wav Track stems</p>
+            <p><FontAwesomeIcon icon={faCircle}/>Unlimited Distribution</p>
+            <p><FontAwesomeIcon icon={faCircle}/>Unlimited Commercial Use</p>
+            <p><FontAwesomeIcon icon={faCircle}/>Able to put song on all platforms (Spotify, Apple Music etc.)</p>
+            <p><FontAwesomeIcon icon={faCircle}/>Must Credit (prod. eddienubes)</p>
+
+        </div>
     </Card>
 );
 

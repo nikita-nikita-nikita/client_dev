@@ -7,7 +7,7 @@ const Track = () =>
     (
         <tr>
             <td className="td-img">
-                <img src="https://i.imgur.com/W6MT8iR.png"/>
+                <img src="https://i.imgur.com/W6MT8iR.png" alt="sasi, ne budet tebe pik4i"/>
             </td>
             <td className="title">
                 Title

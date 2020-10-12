@@ -1,7 +1,41 @@
 .head {
     background-color: black;
-    font-size: 10px;
-    letter-spacing: 6px!important;
-    font-weight: lighter;
     color: white;
+    text-align: center;
+
+    p {
+        margin-top: 25px;
+        font-size: 10px;
+        font-weight: lighter;
+        letter-spacing: 6px!important;
+    }
+}
+
+.license-type {
+    margin-top: 55px;
+    font-size: 25px;
+}
+
+.price {
+    margin-top: 22px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.per-unit {
+    font-size: 12px;
+    margin-top: 22px;
+    font-weight: bold;
+    margin-bottom: 35px;
+}
+
+.description {
+    color: black;
+    font-size: 14px;
+    font-family: "Roboto", sans-serif;
+    background-color: #ffffff;
+    p {
+        margin: 30px 30px 30px 30px;
+        text-align: left;
+    }
 }
