@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.scss";
+import "./stylesHeader.scss";
 import Navbar from "react-bootstrap/cjs/Navbar";
 import Nav from "react-bootstrap/cjs/Nav";
 import { Link } from "react-router-dom";
