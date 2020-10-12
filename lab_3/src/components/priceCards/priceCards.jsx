@@ -20,7 +20,7 @@ const PriceCards = () => (
         </div>
         <div className="description">
 
-            <p><FontAwesomeIcon icon={faCircle}/>Untagged Wav Track stems</p>
+            <p><FontAwesomeIcon icon={faCircle}/>ыфвывфывUntagged Wav Track stems</p>
             <p><FontAwesomeIcon icon={faCircle}/>Unlimited Distribution</p>
             <p><FontAwesomeIcon icon={faCircle}/>Unlimited Commercial Use</p>
             <p><FontAwesomeIcon icon={faCircle}/>Able to put song on all platforms (Spotify, Apple Music etc.)</p>
