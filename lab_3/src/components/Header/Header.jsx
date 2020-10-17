@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/cjs/Navbar";
 import Nav from "react-bootstrap/cjs/Nav";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faShoppingCart, faUser } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => (
     <header>
@@ -15,7 +15,8 @@ const Header = () => (
                 <Nav.Link to="/contact" as={Link}>Contact</Nav.Link>
                 <Nav.Link to="/tracks" as={Link}>Tracks</Nav.Link>
                 <Nav.Link to="/login" as={Link}>Tracks</Nav.Link>
-                <Nav.Link className="invert" to="/cart" as={Link}><FontAwesomeIcon icon={faShoppingCart}/> Cart</Nav.Link>
+                <Nav.Link className="invert" to="/cart" as={Link}><FontAwesomeIcon icon={faShoppingCart}/> Cart </Nav.Link>
+                <Nav.Link className="invert" to="/login" as={Link}><FontAwesomeIcon icon={faUser}/> Log In </Nav.Link>
             </Nav>
         </Navbar>
     </header>
