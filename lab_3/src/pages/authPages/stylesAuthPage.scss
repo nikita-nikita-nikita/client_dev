@@ -1,0 +1,122 @@
+.auth-page {
+  width: 345px;
+  margin: 0 auto;
+
+  // h2
+  h2 {
+    text-align: center;
+    margin: 30px auto;
+  }
+
+  // login form Login by email, top part
+  .email-login-form {
+    display: flex;
+    flex-direction: column;
+    // delete p margins
+    p {
+      margin: 0;
+    }
+
+    // inputs styles
+    input {
+      width: 100%;
+      border: 1px solid #D8D8D8;
+      padding: 5px 12px;
+      height: 36px;
+      margin-bottom: 30px;
+      border-radius: 3px;
+      transition: .3s ease-in-out;
+      // change input focus
+      &:focus {
+        border-color: black;
+        outline: 1px;
+      }
+    }
+
+    // text block under password field  ||<text> <spaaaaaaaaaaaaaace> <text>||
+    .over-password {
+      display: flex;
+      justify-content: space-between;
+
+      p {
+        width: auto;
+      }
+
+      a {
+        color: #898989;
+
+        &:hover {
+          text-decoration: underline;
+          font-weight: 400;
+        }
+      }
+    }
+
+    // button styles
+    button {
+      width: 100%;
+      height: 36px;
+      padding: 8px 16px;
+      cursor: pointer;
+      background-color: #FE2B0D;
+      border: 1px solid #FE2B0D;
+      border-radius: 5px;
+      color: white;
+
+      &:hover {
+        color: #F4604C;
+        background-color: #EF1D01;
+      }
+    }
+  }
+
+  // divider styles text ("or")
+  .divider-h2{
+    position: relative;
+    display: flex;
+    align-items: center;
+    // divider line
+    .line{
+      content: "";
+      background-color: #EDEDED;
+      width: 100%;
+      height: 2px;
+      z-index: 0;
+    }
+    // divider text ("or")
+    span{
+      padding: 0 5px;
+      color: #757575;
+      font-size: 13px;
+      background-color: white;
+      height: auto;
+      z-index: 1;
+      letter-spacing: .2px;
+      font-weight: 200;
+      display: block;
+    }
+
+  }
+
+  // oauth
+  .oauth{
+    width: 100%;
+    height: 40px;
+    background-color: white;
+    padding: 0;
+    border: 1px solid #D8D8D8;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.04);
+    position: relative;
+    img{
+      position: absolute;
+      left: 12.5px;
+    }
+  }
+
+  >p{
+    text-align: center;
+    margin-top: 25px;
+  }
+}
+
