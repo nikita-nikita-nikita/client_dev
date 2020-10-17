@@ -11,7 +11,7 @@
         margin: 0 auto;
         text-align: center;
         position: relative;
-        width: 40%;
+        width: 55%;
 
         input {
             border: 1px solid white;
@@ -54,3 +54,11 @@
     padding: 80px;
     background-color: black;
 }
+
+@media (max-width: 600px) {
+    .logo {font-size: 3rem!important;}
+}
+@media (max-width: 700px) {
+    .search {width: 100%!important;}
+}
+

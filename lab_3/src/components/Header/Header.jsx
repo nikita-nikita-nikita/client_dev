@@ -9,7 +9,7 @@ import { faShoppingCart, faUser } from "@fortawesome/free-solid-svg-icons";
 const Header = () => (
     <header>
         <Navbar className="justify-content-between bg-black" variant="dark">
-            <Navbar.Brand to="/" as={Link}>ЧЭРЭШНЯ</Navbar.Brand>
+            <Navbar.Brand to="/" as={Link}>ЧЄРЄШНЯ</Navbar.Brand>
             <Nav>
                 <Nav.Link to="/about" as={Link}>About</Nav.Link>
                 <Nav.Link to="/contact" as={Link}>Contact</Nav.Link>
