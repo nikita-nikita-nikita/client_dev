@@ -34,8 +34,89 @@
     font-size: 14px;
     font-family: "Roboto", sans-serif;
     background-color: #ffffff;
+    padding: 10px;
     p {
         margin: 30px 30px 30px 30px;
         text-align: left;
     }
+    li {
+        list-style: none;
+        position: relative;
+        margin-top: 20px;
+        //line-height: 3em;
+    }
+    li::before {
+
+        content: "•";
+        font-size: 45px;
+        position: absolute;
+        left: -25px;
+    }
+}
+
+.card-footer {
+    background-color: black;
+    p {
+        color: white;
+        text-align: center;
+    }
+    .icon {
+        color: white;
+    }
+    .card-footer-caption {
+        span {
+            font-size: 0.75em;
+        }
+        color: white;
+        letter-spacing: 3px;
+        text-align: center;
+        p {
+            font-size: 1.2em;
+
+            letter-spacing: normal;
+            font-weight: 700;
+            margin: 5px 0 5px;
+        }
+    }
+    .button-container {
+        display: grid;
+    }
+}
+
+.card-footer-button {
+    background: none!important;
+    text-align: center;
+    margin: auto;
+    span {
+        color: white;
+    }
+
+}
+.card-footer-content {
+    letter-spacing: normal;
+    font-weight: 700;
+    div {
+        p {
+            font-size: 1.2em;
+        }
+    }
+}
+
+.collapsible-trigger {
+    padding: 0;
+    text-align: center;
+    background-color: red;
+}
+
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    //grid-gap: 1%;
+    //width: 100%;
+}
+
+.card {
+    margin: 0!important;
+    box-shadow: 4px 4px 1px 1px black;
 }
