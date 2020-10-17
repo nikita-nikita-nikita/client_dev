@@ -6,8 +6,28 @@
     "bpm": 135,
     "isFree": false,
     "time": "03:35",
-    "loadTime": "14:22",
-    "name": "VACATION",
+    "name": "Vacation",
     "scale": "Cm"
+  },
+  {
+    "audioUrl": "/tracks/Raindrop Gm 139.mp3",
+    "imgUrl": "/covers/W6MT8iR.png",
+    "tags": ["Logic", "Eminem", "Quadeca", "Hard", "BrokenDrill"],
+    "bpm": 139,
+    "isFree": false,
+    "time": "04:05",
+    "name": "Raindrop",
+    "scale": "Gm"
+  },
+  {
+    "audioUrl": "/tracks/Sharp G#m 190bpm.mp3",
+    "imgUrl": "/covers/W6MT8iR.png",
+    "tags": ["Tyga", "Tory Lanez", "Club", "Hard"],
+    "bpm": 190,
+    "isFree": true,
+    "time": "02:27",
+    "loadTime": "14:22",
+    "name": "Sharp",
+    "scale": "G#m"
   }
 ]

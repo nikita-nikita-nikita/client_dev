@@ -21,3 +21,11 @@
   color: white;
   border: 1px solid white;
 }
+
+button {
+  border: 0;
+}
+
+button:focus {
+  outline: none!important;
+}

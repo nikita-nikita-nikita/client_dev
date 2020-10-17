@@ -80,17 +80,24 @@
     }
     .button-container {
         display: grid;
+
     }
 }
 
 .card-footer-button {
     background: none!important;
     text-align: center;
-    margin: auto;
+    margin: 10px auto;
     span {
         color: white;
     }
-
+    padding: 10px;
+}
+.card-footer-button:hover {
+    background-color: rgba(199, 199, 199, 0.4)!important;
+    border-radius: 2px;
+    transition: 0.3s;
+    background-size: 30px!important;
 }
 .card-footer-content {
     letter-spacing: normal;
@@ -106,17 +113,18 @@
     padding: 0;
     text-align: center;
     background-color: red;
-}
 
-
-.grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    //grid-gap: 1%;
-    //width: 100%;
 }
 
 .card {
-    margin: 0!important;
-    box-shadow: 4px 4px 1px 1px black;
+    //margin: 1px!important;
+    //box-shadow: 4px 4px 1px 1px black!important;
+}
+.card-container {
+    display: flex;
+    justify-content: space-between;
+    flex-shrink: inherit;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 40px;
 }
