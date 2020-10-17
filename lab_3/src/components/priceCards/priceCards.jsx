@@ -11,10 +11,9 @@ import Modal from 'react-bootstrap/Modal'
 
 function MyVerticallyCenteredModal(props) {
     return (
-        <Modal
+        <Modal className="modal-pop"
             {...props}
             size="lg"
-            aria-labelledby="contained-modal-title-vcenter"
             centered
         >
             <Modal.Header closeButton>
