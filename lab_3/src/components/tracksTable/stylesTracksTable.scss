@@ -6,7 +6,7 @@
         tr {
             border-bottom: 1px solid #c9c9c9;
             &:not(:first-child) {
-                &:hover {
+                &:hover:not(.selected_tr) {
                     cursor: pointer;
                     background: #e0e0e0;
                 }
@@ -24,6 +24,15 @@
                 &.tags{
                     font-weight: lighter;
                 }
+            }
+        }
+
+
+        .selected_tr{
+            background: #b52929;
+            &:hover{
+                opacity: 0.9;
+                cursor: pointer;
             }
         }
 
