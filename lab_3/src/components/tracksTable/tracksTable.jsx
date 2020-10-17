@@ -15,8 +15,9 @@ const TracksTable = () =>{
 
     return (
         <div className="tracks-table">
-            {process.env.PUBLIC_URL}
-            <ReactJkMusicPlayer autoPlay={false} audioLists={tracks.map((track) => {
+            <ReactJkMusicPlayer onAudioPause={() => {
+                setSelectedTrack(null)
+            }} autoPlay={false} audioLists={tracks.map((track) => {
                 return({
                     name: track.name,
                     musicSrc: track.audioUrl,
