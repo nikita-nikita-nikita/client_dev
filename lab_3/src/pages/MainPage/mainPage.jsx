@@ -7,10 +7,10 @@ import MainPageContact from "../../containers/MainPageContact";
 const MainPage = () =>
     (
         <>
-            <BigSearch/>
-            <TracksTable tracks={[23, 3243]}/>
-            <PriceCards/>
-            <MainPageContact/>
+                <BigSearch/>
+                <TracksTable tracks={[23, 3243]}/>
+                <PriceCards/>
+                <MainPageContact/>
         </>
     );
 

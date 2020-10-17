@@ -34,28 +34,30 @@
     font-size: 14px;
     font-family: "Roboto", sans-serif;
     background-color: #ffffff;
-    padding: 10px;
+    padding: 10px 7px!important;
+    ul {
+        padding-left: 25px!important;
+    }
     p {
-        margin: 30px 30px 30px 30px;
         text-align: left;
     }
     li {
         list-style: none;
         position: relative;
-        margin-top: 20px;
-        //line-height: 3em;
+        margin: 17px 7px;
     }
     li::before {
 
         content: "•";
-        font-size: 45px;
+        font-size: 35px;
         position: absolute;
-        left: -25px;
+        left: -20px;
     }
 }
 
 .card-footer {
     background-color: black;
+    border-radius: 0!important;
     p {
         color: white;
         text-align: center;
@@ -115,15 +117,100 @@
     background-color: red;
 
 }
-
+.popular-card {
+    transform: translateY(-50px) scale(1.01);
+    perspective: 700px;
+    transform-style: preserve-3d;
+    background-color: purple;
+    //filter: invert(1);
+    .head, .card-footer {
+        background-color: white;
+        color: black;
+        button {
+            color: black;
+        }
+        span, p {
+            color: black;
+        }
+        .icon {
+            color: black;
+        }
+    }
+    .description {
+        background-color: black;
+        color: white;
+    }
+}
+.popular-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 0 25px 4px white!important;
+}
 .card {
-    border: none;
+    border: none!important;
     outline: none!important;
     margin: 50px 10px!important;
     min-width: 200px!important;
     height: 100%!important;
+    transition: 0.2s ease-in-out;
+    border-radius: 0!important;
+    font-weight: 100!important;
+}
+.card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 0 25px 4px black;
+
 }
 .card-container {
-    background-color: #212121;
+    background-image: linear-gradient(white, black);
+    margin: 0!important;
     padding: 20px;
+}
+
+.license-button-container {
+    display: grid;
+    padding: 10px 40px;
+    font-weight: 100!important;
+}
+.license-button {
+    border-radius: 0!important;
+    margin: 0!important;
+    background: none;
+    color: black!important;
+    padding: 15px 0!important;
+    letter-spacing: 1px;
+    border: 1px solid black;
+
+}
+
+.license-button-popular {
+    border-radius: 0!important;
+    margin: 0!important;
+    background: none;
+    padding: 15px 0!important;
+    letter-spacing: 1px;
+    border: 1px solid white;
+    color: white!important;
+    background-color: black!important;
+}
+.license-button-popular:hover {
+    border-radius: 2px!important;
+    transition: 0.45s;
+    background-size: 30px!important;
+    border: 1px solid black;
+    color: black!important;
+    background-color: white!important;
+}
+
+.license-button:hover {
+    background-color: black;
+    border-radius: 2px!important;
+    transition: 0.45s;
+    background-size: 30px!important;
+    color: white!important;
+}
+
+.license-close-button {
+    border-radius: 2px!important;
+    transition: 0.4s!important;
+    color: black;
 }
