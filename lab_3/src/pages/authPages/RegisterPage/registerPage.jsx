@@ -16,7 +16,13 @@ const RegisterPage = () => {
                 <input name="password" placeholder="Type your password..." type="password"/>
                 <p>Confirmed password</p>
                 <input name="password" placeholder="Confirm your password..." type="password"/>
-                {/* todo make a cheeecks box */}
+                <label>
+                    <input type="checkbox" name="checked"/>
+                    <span className="labeled-text">
+                        {/* todo Ссылки на Terms of service и на Privacy policy*/}
+                        I have read and agree to the <a>Terms of service</a> and <a>Privacy policy</a>
+                    </span>
+                </label>
                 <button>Sign up</button>
             </form>
             <h2 className="divider-h2">
