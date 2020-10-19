@@ -14,7 +14,6 @@ const Header = () => (
                 <Nav.Link to="/about" as={Link}>About</Nav.Link>
                 <Nav.Link to="/contact" as={Link}>Contact</Nav.Link>
                 <Nav.Link to="/tracks" as={Link}>Tracks</Nav.Link>
-                <Nav.Link to="/login" as={Link}>Tracks</Nav.Link>
                 <Nav.Link className="invert" to="/cart" as={Link}><FontAwesomeIcon icon={faShoppingCart}/> Cart </Nav.Link>
                 <Nav.Link className="invert" to="/login" as={Link}><FontAwesomeIcon icon={faUser}/> Log In </Nav.Link>
             </Nav>
