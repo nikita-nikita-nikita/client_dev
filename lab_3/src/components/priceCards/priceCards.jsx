@@ -52,12 +52,11 @@ function FullLicenseBox(props) {
 }
 
 
-const ContextAwareToggle = ({eventKey, callback }) => {
+const ContextAwareToggle = ({eventKey, callback}) => {
     const currentEventKey = useContext(AccordionContext);
-
     const decoratedOnClick = useAccordionToggle(
         eventKey,
-        () => callback && callback(eventKey),
+        () => callback && callback(eventKey)
     );
 
     const isCurrentEventKey = currentEventKey === eventKey;

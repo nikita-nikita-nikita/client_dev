@@ -1,0 +1,32 @@
+footer {
+    width: 100%;
+    height: 200px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    .copyright {
+        width: 50%;
+        span {
+            display: block;
+            .circle {
+                font-size: 0.33rem;
+                vertical-align: middle;
+            }
+        }
+
+    }
+    .links {
+        width: 50%;
+        a {
+            display: inline-block;
+            text-align: center;
+        }
+        .youtube {
+            color: red;
+        }
+        .instagram {
+            color: deeppink;
+        }
+    }
+
+}
