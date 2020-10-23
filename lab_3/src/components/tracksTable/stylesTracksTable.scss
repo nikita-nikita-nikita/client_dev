@@ -47,6 +47,20 @@
     }
 }
 
+@media (max-width: 700px){
+    .tracks-table{
+        tr{
+            td:nth-child(5), th:nth-child(5){
+                display: none;
+            }
+
+            .title{
+                min-width: 0 !important;
+            }
+        }
+    }
+}
+
 @media screen and (min-width: 1920px){
     #top-10-track-table{
         max-width: 1200px;
