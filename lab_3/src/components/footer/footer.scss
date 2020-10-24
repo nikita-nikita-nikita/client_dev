@@ -1,32 +1,55 @@
 footer {
-    width: 100%;
     height: 200px;
     background-color: white;
-    display: flex;
-    justify-content: space-between;
-    .copyright {
-        width: 50%;
-        span {
-            display: block;
-            .circle {
-                font-size: 0.33rem;
-                vertical-align: middle;
+    //background-image: linear-gradient(white, black);
+
+    .wrapper {
+        min-width: 300px;
+        display: flex;
+        justify-content: space-between;
+        max-width: 700px;
+        margin: 0 auto;
+        padding-top: 50px;
+
+        .copyright {
+            span {
+                &:first-child {
+                    font-size: 2rem;
+                    font-weight: bold;
+
+                }
+                &:last-child {
+                    font-size: 0.7rem;
+                    margin-top: 30px ;
+                }
+                display: block;
+
+                .circle {
+                    font-size: 0.33rem;
+                    vertical-align: middle;
+                }
+            }
+
+        }
+
+        .links {
+            //margin: 30px;
+            a {
+                display: inline-block;
+                text-align: center;
+                margin-left: 15px;
+                transition: transform 0.3s ease-in-out, rotate 2s ease-in-out;
+                &:hover {
+                    transform: scale(1.2) rotate(1turn);
+                }
+            }
+            .youtube {
+                color: red;
+            }
+
+            .instagram {
+                color: deeppink;
             }
         }
-
     }
-    .links {
-        width: 50%;
-        a {
-            display: inline-block;
-            text-align: center;
-        }
-        .youtube {
-            color: red;
-        }
-        .instagram {
-            color: deeppink;
-        }
-    }
-
 }

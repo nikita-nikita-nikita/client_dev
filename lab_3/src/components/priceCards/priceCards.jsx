@@ -7,7 +7,7 @@ import {faAngleUp, faTag, faAngleDown} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {AccordionContext, useAccordionToggle} from "react-bootstrap";
 import CardDeck from 'react-bootstrap/CardDeck';
-import Modal from 'react-bootstrap/Modal'
+import Modal from 'react-bootstrap/Modal';
 
 function MyVerticallyCenteredModal(props) {
     return (
