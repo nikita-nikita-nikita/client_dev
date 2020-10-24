@@ -14,9 +14,10 @@ import 'react-jinke-music-player/assets/index.css';
 import 'react-jinke-music-player/lib/styles/index.less'
 
 import MainPage from "../../pages/MainPage";
-import ContactPage from "../../pages/ContactPage/contactPage";
+import ContactPage from "../../pages/ContactPage";
 import LoginPage from "../../pages/authPages/LoginPage";
 import RegisterPage from "../../pages/authPages/RegisterPage";
+import CheckoutPage from "../../pages/checkoutPage";
 
 
 
@@ -47,6 +48,7 @@ const Routing = () => {
                 <Route exact path="/contact" component={ContactPage}/>
                 <Route exact path="/login" component={LoginPage}/>
                 <Route exact path="/register" component={RegisterPage}/>
+                <Route exact path="/checkout" component={CheckoutPage}/>
             </Switch>
             <Footer/>
         </Router>
