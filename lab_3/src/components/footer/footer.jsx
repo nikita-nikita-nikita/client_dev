@@ -9,6 +9,7 @@ const Footer = () => {
 
     return (
         <footer>
+            <hr/>
             <div className="wrapper">
                 <div className="copyright">
                     <span>Cherries By</span>
