@@ -20,9 +20,8 @@ import RegisterPage from "../../pages/authPages/RegisterPage";
 import CheckoutPage from "../../pages/checkoutPage";
 
 
-
-for(let i in tracks){
-    tracks[i].index = i;
+for (let i in tracks) {
+    tracks[i].index = i; // TODO Refactor playback code, export play functionality
 }
 
 const Routing = () => {
@@ -34,7 +33,7 @@ const Routing = () => {
             <Header/>
             <ReactJkMusicPlayer onAudioPause={() => {
                 setSelectedTrack(null)
-            }} mode={"full"} autoPlay={false} audioLists={tracks.map((track) => {
+            }} mode={"full"} autoPlay={false} audioLists={tracks.map((track) => { // TODO Separate playback from here
                 return({
                     name: track.name,
                     musicSrc: track.audioUrl,

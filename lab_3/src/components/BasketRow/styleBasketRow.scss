@@ -1,3 +1,25 @@
 .basket__remove-item {
     cursor: pointer;
 }
+.row-item {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.button {
+    border-radius: 0!important;
+    margin: 0!important;
+    background: none;
+    color: black!important;
+    padding: 10px;
+    letter-spacing: 1px;
+    border: 1px solid black;
+}
+
+.button:hover {
+    background-color: black;
+    border-radius: 0!important;
+    transition: 0.45s;
+    background-size: 30px!important;
+    color: white!important;
+}

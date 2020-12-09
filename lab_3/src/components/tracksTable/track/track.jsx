@@ -7,11 +7,11 @@ const Track = ({track, instance, selectedTrack, setSelectedTrack}) => {
     //const[track, setAudioInstance] = useState(null);
 
     return(
-        <tr className={selectedTrack==track.index?"selected_tr":""} onClick={() => {
-            if(selectedTrack==track.index){
+        <tr className={selectedTrack === track.index ? "selected_tr" : ""} onClick={() => {
+            if (selectedTrack === track.index) {
                 setSelectedTrack(null);
                 instance.pause();
-            }else{
+            } else {
                 instance.playByIndex(track.index);
                 setSelectedTrack(track.index);
             }

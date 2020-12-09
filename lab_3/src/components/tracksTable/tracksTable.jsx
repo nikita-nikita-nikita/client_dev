@@ -22,7 +22,12 @@ const TracksTable = ({tracks, instance, selectedTrack, setSelectedTrack}) =>{
                     </td>
                     <td/>
                 </tr>
-                {tracks.map(track => <Track track={track} instance={instance} selectedTrack={selectedTrack} setSelectedTrack={setSelectedTrack}/>)}
+                { tracks.map(track => <Track track={track}
+                                            instance={instance}
+                                            selectedTrack={selectedTrack}
+                                            setSelectedTrack={setSelectedTrack}/>
+                                            )
+                }
             </table>
         </div>
     );

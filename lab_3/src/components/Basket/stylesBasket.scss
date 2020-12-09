@@ -1,0 +1,11 @@
+.header {
+    display: flex;
+    align-content: space-around;
+    height: 50px;
+    margin-top: 20px;
+    .header-item {
+        display: flex!important;
+        vertical-align: center!important;
+        align-content: space-around!important;
+    }
+}

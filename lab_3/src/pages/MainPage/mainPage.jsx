@@ -1,7 +1,7 @@
 import React from "react";
 import BigSearch from "../../components/bigSearch";
 import TracksTable from "../../components/tracksTable";
-import PriceCards from "../../components/priceCards";
+import {PriceCards} from "../../components/priceCards";
 import MainPageContact from "../../containers/MainPageContact";
 
 const MainPage = ({tracks, instance, selectedTrack, setSelectedTrack}) =>

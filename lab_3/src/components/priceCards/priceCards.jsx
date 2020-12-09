@@ -34,13 +34,17 @@ function MyVerticallyCenteredModal(props) {
     );
 }
 
-function FullLicenseBox(props) {
+// props: className
+const LicenseBox = (props) => {
     const [modalShow, setModalShow] = React.useState(false);
+
+    // default text
+    if (props.text == null) props.text = "Read License";
 
     return (
         <>
-            <button className={props.isPopular ? "license-button-popular" : "license-button"} onClick={() => setModalShow(true)}>
-                READ FULL LICENSE
+            <button className={props.className} onClick={() => setModalShow(true)}>
+                {props.text}
             </button>
 
             <MyVerticallyCenteredModal
@@ -102,7 +106,7 @@ const PriceCards = () => {
 
                     </ul>
                     <div className="license-button-container">
-                        <FullLicenseBox isPopular={true}/>
+                        <LicenseBox className="license-button-popular" text="Read License"/>
                     </div>
                 </div>
                 <div className="card-footer">
@@ -159,7 +163,7 @@ const PriceCards = () => {
                             <li>Must Credit (prod. cherriesby)</li>
                         </ul>
                         <div className="license-button-container">
-                            <FullLicenseBox/>
+                            <LicenseBox className="license-button" text="Read License"/>
                         </div>
                     </div>
                     <div className="card-footer">
@@ -216,7 +220,7 @@ const PriceCards = () => {
                             <li>Must Credit (prod. cherriesby)</li>
                         </ul>
                         <div className="license-button-container">
-                            <FullLicenseBox/>
+                            <LicenseBox className="license-button" text="Read License"/>
                         </div>
                     </div>
                     <div className="card-footer">
@@ -274,7 +278,7 @@ const PriceCards = () => {
                             <li>Must Credit (prod. eddienubes)</li>
                         </ul>
                         <div className="license-button-container">
-                            <FullLicenseBox/>
+                            <LicenseBox className="license-button" text="Read License"/>
                         </div>
                     </div>
                     <div className="card-footer">
@@ -331,7 +335,7 @@ const PriceCards = () => {
                             <li>Must Credit (prod. eddienubes)</li>
                         </ul>
                         <div className="license-button-container">
-                            <FullLicenseBox/>
+                            <LicenseBox className="license-button" text="Read License"/>
                         </div>
                     </div>
                     <div className="card-footer">
@@ -371,4 +375,4 @@ const PriceCards = () => {
     )
 };
 
-export default PriceCards;
+export {PriceCards, LicenseBox};

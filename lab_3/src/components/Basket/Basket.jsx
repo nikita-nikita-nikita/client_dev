@@ -9,10 +9,10 @@ const Basket = () =>
             <Row>
                 <Col xs={7}>
                     <div className='basket__thead'>
-                        <Row className='text-center'>
-                            <Col sm={{span: 4, offset: 2}}>Product</Col>
-                            <Col sm={3}>Amount</Col>
-                            <Col sm={2}>License Review</Col>
+                        <Row className='header'>
+                            <Col className="header-item" sm={{span: 4, offset: 2}}>Product</Col>
+                            <Col className="header-item" sm={3}>Amount</Col>
+                            <Col className="header-item" sm={3}>License Review</Col>
                         </Row>
                         <Row>
                             <Col sm={1}>Tracks</Col>
@@ -24,7 +24,11 @@ const Basket = () =>
                     <div className='basket__tbody'>
                         <BasketRow
                             url='https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kvadrato.svg/1200px-Kvadrato.svg.png'
-                            product='биточек' amount='100$' license='license'/>
+                            product='биточек assssssssssssssssssssssssssssssssssssssssssss' amount='100$' license='license'/><BasketRow
+                            url='https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kvadrato.svg/1200px-Kvadrato.svg.png'
+                            product='биточек assssssssssssssssssssssssssssssssssssssssssss' amount='100$' license='license'/><BasketRow
+                            url='https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kvadrato.svg/1200px-Kvadrato.svg.png'
+                            product='биточек assssssssssssssssssssssssssssssssssssssssssss' amount='100$' license='license'/>
                     </div>
                 </Col>
                 <Col xs={{span: 4, offset: 1}}>

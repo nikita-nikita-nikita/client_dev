@@ -25,9 +25,9 @@ const Header = () => (
             <Navbar.Toggle id="baton" aria-controls="nav-bar" as={ToggleMenu}/>
             <Navbar.Collapse id="nav-bar">
                 <Nav>
-                    {/*<Nav.Link to="/about" as={Link}>About</Nav.Link>*/}
+                    <Nav.Link to="/tracks" as={Link}>Tracks</Nav.Link>
                     <Nav.Link to="/contact" as={Link}>Contact</Nav.Link>
-                    {/*<Nav.Link to="/tracks" as={Link}>Tracks</Nav.Link>*/}
+                    <Nav.Link to="/about" as={Link}>About</Nav.Link>
                     <Nav.Link className="invert" to="/checkout" as={Link}>
                         <FontAwesomeIcon icon={faShoppingCart}/> Cart
                     </Nav.Link>

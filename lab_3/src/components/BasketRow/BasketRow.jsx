@@ -3,25 +3,23 @@ import './styleBasketRow.scss';
 import {Col, Row} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTimes} from "@fortawesome/free-solid-svg-icons";
-
+import {LicenseBox} from "../priceCards";
 
 const BasketRow = ({product, amount, license, url}) => {
     return (
-        <Row className="align-items-center text-center">
+        <Row className="align-items-center">
             <Col sm={2}><img className='w-100'
                              src={url}
                              alt="Track"/>
             </Col>
-            <Col sm={4}>
+            <Col className="row-item" sm={4}>
                 {product}
             </Col>
-            <Col sm={3}>
+            <Col className="row-item" sm={3}>
                 {amount}
             </Col>
             <Col sm={2}>
-                <button>
-                    {license}
-                </button>
+                <LicenseBox className="button" text="License"/>
             </Col>
             <Col sm={1}>
                 <FontAwesomeIcon className='basket__remove-item' icon={faTimes}/>
