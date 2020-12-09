@@ -20,7 +20,6 @@
     margin-top: 22px;
     font-size: 2.8em;
     font-weight: bold;
-    font-weight: bold;
 }
 
 .per-unit {
@@ -116,8 +115,8 @@
     padding: 0;
     text-align: center;
     background-color: red;
-
 }
+
 .popular-card {
     transform: translateY(-50px) scale(1.01);
     perspective: 700px;
@@ -159,8 +158,8 @@
 .card:hover {
     transform: translateY(-15px) scale(1.02);
     box-shadow: 0 0 25px 4px black;
-
 }
+
 .card-container {
     background-image: linear-gradient(white, black);
     margin: 0!important;
