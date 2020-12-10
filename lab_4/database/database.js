@@ -28,7 +28,7 @@ class Database{
 				}
 
 				resolve(rows);
-			})
+			});
 		});
 	}
 
@@ -89,13 +89,25 @@ class Database{
 
 	removeFromBasketByItemId(id){
 		return new Promise((resolve, reject) => {
-			db.run(`DELETE FROM basket WHERE id=${id}`, [], (err){
+			db.run(`DELETE FROM basket WHERE id=${id}`, [], (err) => {
 				if(err)
 					reject(err);
 
 				resolve();
 			});
 		});
+	}
+
+	getTrackById(id){
+		return this.getRow(`SELECT * FROM tracks WHERE id=${id}`);
+	}
+
+	getAllTracks(){
+		return this.getRows(`SELECT * FROM tracks`);
+	}
+
+	getTrackTags(id){
+		return this.request(`SELECT tn.name FROM tags t JOIN tag_names tn ON t.tag_id = tn.id WHERE track_id=${id}`);
 	}
 }
 

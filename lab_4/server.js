@@ -9,8 +9,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-DB.addPurchase(1,2,3).then(console.log, console.log);
-DB.getPurchasesByUserId(1).then(console.log, console.log);
+//DB.addPurchase(1,2,3).then(console.log, console.log);
+DB.getAllTracks().then(console.log);
 
 
 app.listen( port, () => {
