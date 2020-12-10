@@ -9,8 +9,92 @@ const db = new sqlite3.Database('database/database.db', sqlite3.OPEN_READWRITE, 
 
 class Database{
 	request(query){
-		db.all(query,[],(err, rows) => {
-			console.log(rows);
+		return new Promise((resolve, reject) => {
+			db.all(query, [], (err, rows) => {
+				if(err){
+					reject();
+				}
+
+				resolve(rows);
+			});
+		});
+	}
+
+	getRows(query){
+		return new Promise((resolve, reject) => {
+			db.all(query, [], (err, rows) => {
+				if(err){
+					reject(err);
+				}
+
+				resolve(rows);
+			})
+		});
+	}
+
+	getRow(query){
+		return new Promise((resolve, reject) => {
+			db.all(query, [], (err, rows) => {
+				if(err){
+					reject(err);
+				}
+
+				if(rows.length)
+					resolve(rows[0]);
+				else
+					reject();
+			})
+		});
+	}
+
+	insertAndReturn(table, query){
+		return new Promise((resolve, reject) => {
+			db.run(query, [], (err) => {
+				if(err){
+					reject(err);
+				}
+
+				this.getRow(`SELECT * FROM ${table} WHERE id=(SELECT MAX(id) FROM ${table})`).then(resolve);
+			});
+		});
+	}
+
+	createUser(username, password, mail){
+		return this.insertAndReturn('users', `INSERT INTO users(username, password, mail) VALUES ('${username}','${password}','${mail}')`);
+	}
+
+	getUserById(id){
+		return this.getRow(`SELECT * FROM users WHERE id=${id}`);
+	}
+
+	getAllUsers(){
+		return this.getRows(`SELECT * FROM users`);
+	}
+
+	getPurchasesByUserId(id){
+		return this.getRows(`SELECT * FROM purchases WHERE user_id=${id}`);
+	}
+
+	addPurchase(user_id, track_id, type){
+		return this.insertAndReturn('purchases', `INSERT INTO purchases(user_id, track_id, type) VALUES(${user_id}, ${track_id}, ${type})`)
+	}
+
+	addToBasket(user_id, track_id, type){
+		return this.insertAndReturn('basket', `INSERT INTO basket(user_id, track_id, type) VALUES(${user_id}, ${track_id}, ${type})`)
+	}
+
+	getTracksInBasketByUserId(id){
+		return this.getRows(`SELECT * FROM basket WHERE user_id=${id}`);
+	}
+
+	removeFromBasketByItemId(id){
+		return new Promise((resolve, reject) => {
+			db.run(`DELETE FROM basket WHERE id=${id}`, [], (err){
+				if(err)
+					reject(err);
+
+				resolve();
+			});
 		});
 	}
 }

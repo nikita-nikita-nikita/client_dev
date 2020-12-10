@@ -9,7 +9,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-DB.request(`SELECT * FROM users`);
+DB.addPurchase(1,2,3).then(console.log, console.log);
+DB.getPurchasesByUserId(1).then(console.log, console.log);
 
 
 app.listen( port, () => {
