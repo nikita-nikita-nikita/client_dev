@@ -23,7 +23,7 @@ const BasketRow = ({product, amount, licenseType, imgUrl}) => {
             <Table.Cell textAlign="center" verticalAlign="middle" className="row-item">
                 {amount}
             </Table.Cell>
-            <Table.Cell width={1} verticalAlign="middle" className="row-item button-license">
+            <Table.Cell textAlign="center" width={1} verticalAlign="middle" className="row-item button-license">
                 <LicenseBox className="button" text="License"/>
             </Table.Cell>
             <Table.Cell width={1} verticalAlign="middle" className="row-item">

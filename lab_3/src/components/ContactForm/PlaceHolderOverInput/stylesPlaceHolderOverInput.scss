@@ -3,7 +3,7 @@
     width: 100%;
     position: relative;
 }
-label {
+.component-label {
     position: absolute;
     margin: 0;
     left: 10px;
@@ -14,7 +14,27 @@ label {
 }
 
 // input
-input {
+.input-required {
+    z-index: 1;
+    background: none;
+    color: white;
+    border: 1px solid white;
+    height: 40px;
+    padding: 3px 8px;
+    width: 100%;
+    transition: .2s;
+    position: relative;
+    // delete default styles
+    &:focus, &:valid {
+        outline: none;
+
+        & ~ label {
+            transform: translateY(-200%) translateX(-10px)!important;
+            font-size: 1rem;
+        }
+    }
+}
+.input-non-required {
     z-index: 1;
     background: none;
     color: white;

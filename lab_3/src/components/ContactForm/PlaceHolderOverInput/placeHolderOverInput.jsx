@@ -11,10 +11,13 @@ import "./stylesPlaceHolderOverInput.scss";
 // }
 
 const PlaceHolderOverInput = (props) => {
+
     return (
-        <div className="input-container">
-            <input className={`${props.className}`} name={props.name} required={props.required}/>
-            <label className={props.labelStyle}>{props.text}</label>
+        <div className={`input-container ${props.wrapper}`}>
+            <input className={`${props.className} ${props.required === true ? "input-required" : "input-non-required"}`}
+                   name={props.name}
+                   required={props.required}/>
+            <label className={`component-label ${props.labelStyle}`}>{props.text}</label>
         </div>
     )
 }

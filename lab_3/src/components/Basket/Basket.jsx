@@ -1,12 +1,21 @@
-import React from "react";
+import React, {useState} from "react";
 import './stylesBasket.scss';
 import BasketRow from "../BasketRow";
 import {PlayBack, Track} from "../tracksTable/track";
 import {Table} from "semantic-ui-react";
 import PlaceHolderOverInput from "../ContactForm/PlaceHolderOverInput";
+import {LicenseBox} from "../priceCards";
+import {Link} from "react-router-dom";
 
-const Basket = ({tracks, instance, selectedTrack, setSelectedTrack}) =>
-    (
+
+
+const Basket = ({tracks, instance, selectedTrack, setSelectedTrack}) => {
+
+    const [isDisabled, setDisabled] = React.useState(true);
+    const checkInputHandler = (e) => {
+        setDisabled(!isDisabled)
+    };
+return (
         // <div>
         //     <Row>
         //         <Col xs={6}>
@@ -57,7 +66,7 @@ const Basket = ({tracks, instance, selectedTrack, setSelectedTrack}) =>
                         <Table.HeaderCell width={3} textAlign="center" className="header-item">LICENSE
                             TYPE</Table.HeaderCell>
                         <Table.HeaderCell width={1} textAlign="center" className="header-item">AMOUNT</Table.HeaderCell>
-                        <Table.HeaderCell width={1} textAlign="left" className="header-item">LICENSE
+                        <Table.HeaderCell width={3} textAlign="left" className="header-item">LICENSE
                             REVIEW</Table.HeaderCell>
                         <Table.HeaderCell width={1} textAlign="left" className="header-item"> </Table.HeaderCell>
                     </Table.Row>
@@ -90,16 +99,50 @@ const Basket = ({tracks, instance, selectedTrack, setSelectedTrack}) =>
                 </Table.Body>
             </Table>
             <aside className="sidebar">
-                <div className="bg-dark p-3 px-5 sidebar-container">
+                <div className="sidebar-container">
 
-                    <PlaceHolderOverInput className={"coupon-input"} labelStyle={"label-style"} name="coupon" text="Bonus coupon">
+                    <form><PlaceHolderOverInput className={"coupon-input"}
+                                             labelStyle={"label-style"}
+                                             name="coupon"
+                                             text="Bonus coupon"
+                                             required={true}>
                     </PlaceHolderOverInput>
-
-
+                        <button className="coupon-button" type="submit">APPLY COUPON</button>
+                    </form>
+                    <form>
+                        <div className="numbers-container gross">
+                            <div>Gross</div>
+                            {/*PUT GROSS VALUE HERE*/}
+                            <div className="number">$99.90</div>
+                        </div>
+                        <div className="numbers-container discount">
+                            <div>Discount</div>
+                            {/*PUT DISCOUNT VALUE HERE*/}
+                            <div className="discount-number number">-$0.00</div>
+                        </div>
+                        <div className="numbers-container total">
+                            <div>Total</div>
+                            {/*PUT TOTAL VALUE HERE*/}
+                            <div className="total-number number">-$0.00</div>
+                        </div>
+                        {/*TODO: MODAL RELOADS PAGE ISSUE*/}
+                        <LicenseBox className="button-review" text="REVIEW LICENSE"/>
+                        <div className="agreement">
+                            <label className="cart-label">
+                                <input onChange={(e) => checkInputHandler(e)} type="checkbox" name="checked"/>
+                                <span className="labeled-text">
+                                   I reviewed and agree to the Track(s) License Agreements
+                                </span>
+                            </label>
+                            <button type="submit" className="buy-button" disabled={isDisabled}>PURCHASE</button>
+                        </div>
+                    </form>
+                    <span className="offer-sign-up">Would you like keep records of your Transaction(s)
+                        for future download of your Purchased files? <Link to="/register">Login or Create</Link> a free account here.</span>
                 </div>
             </aside>
         </div>
-    );
+    )};
 
 export default Basket;
 

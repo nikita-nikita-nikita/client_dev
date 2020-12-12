@@ -9,7 +9,11 @@ import {AccordionContext, useAccordionToggle} from "react-bootstrap";
 import CardDeck from 'react-bootstrap/CardDeck';
 import Modal from 'react-bootstrap/Modal';
 
-function MyVerticallyCenteredModal(props) {
+
+
+
+
+function VerticallyCenteredModal(props) {
     return (
         <Modal className="modal-pop"
                {...props}
@@ -418,10 +422,7 @@ function MyVerticallyCenteredModal(props) {
 // props: className
 const LicenseBox = (props) => {
     const [modalShow, setModalShow] = React.useState(false);
-
     // default text
-
-
     return (
         <>
             <button className={props.className}
@@ -430,14 +431,13 @@ const LicenseBox = (props) => {
                 {props.text}
             </button>
 
-            <MyVerticallyCenteredModal
+            <VerticallyCenteredModal
                 show={modalShow}
                 onHide={() => setModalShow(false)}
             />
         </>
     );
 }
-
 
 const ContextAwareToggle = ({eventKey, callback}) => {
     const currentEventKey = useContext(AccordionContext);

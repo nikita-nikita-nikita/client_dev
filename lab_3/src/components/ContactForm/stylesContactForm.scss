@@ -25,41 +25,6 @@
         width: 350px;
     }
 
-    label {
-        position: absolute;
-        margin: 0;
-        left: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-        transition: .2s ease;
-        font-size: 1.4rem;
-    }
-
-    // input
-    input {
-        z-index: 1;
-        background: none;
-        color: white;
-        border: 1px solid white;
-        height: 40px;
-        padding: 3px 8px;
-        width: 100%;
-        transition: .2s;
-        position: relative;
-        // delete default styles
-        &:focus {
-            outline: none;
-        }
-
-        // placeholder
-        &:focus, &:valid {
-            & ~ label {
-                transform: translateY(-200%) translateX(-10px);
-                font-size: 1rem;
-            }
-        }
-    }
-
     button {
         align-self: flex-start;
         margin-top: 5px;
