@@ -4,6 +4,8 @@ const {DB} = require('./database/database')
 const app = express();
 const port = 5000;
 
+const routes = require('./routes/index.js');
+routes(app);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

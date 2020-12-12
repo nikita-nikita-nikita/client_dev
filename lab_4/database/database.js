@@ -42,7 +42,7 @@ class Database{
 				if(rows.length)
 					resolve(rows[0]);
 				else
-					reject();
+					resolve(null);
 			})
 		});
 	}
