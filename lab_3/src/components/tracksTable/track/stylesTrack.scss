@@ -7,11 +7,16 @@ td {
     font-weight: bold;
 }
 
+tr {
+}
+
 .td-img {
     height: $heightForNotLarge;
     width: $heightForNotLarge;
-    padding: 0!important;
+    padding: 0 !important;
+
     .td-img-main {
+        margin-left: 5px;
         height: 100%;
         width: 100%;
         object-fit: cover;
@@ -20,11 +25,14 @@ td {
 
 .cart_button {
     font-weight: 400;
+    white-space: nowrap;
     color: white;
     border: white 1px solid;
     padding: 7px;
     background: black;
     transition: .25s ease-in-out;
+    margin-right: 3px;
+
     &:hover {
         border: black 1px solid;
         color: black;
@@ -36,6 +44,8 @@ td {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 .tag {

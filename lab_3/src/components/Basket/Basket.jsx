@@ -4,17 +4,20 @@ import BasketRow from "../BasketRow";
 import {PlayBack, Track} from "../tracksTable/track";
 import {Table} from "semantic-ui-react";
 import PlaceHolderOverInput from "../ContactForm/PlaceHolderOverInput";
-import {LicenseBox} from "../priceCards";
 import {Link} from "react-router-dom";
+import {VerticallyCenteredModal} from "../priceCards/priceCards";
 
 
 
 const Basket = ({tracks, instance, selectedTrack, setSelectedTrack}) => {
 
     const [isDisabled, setDisabled] = React.useState(true);
+    const [modalShow, setModalShow] = React.useState(false);
+
     const checkInputHandler = (e) => {
         setDisabled(!isDisabled)
     };
+
 return (
         // <div>
         //     <Row>
@@ -126,7 +129,14 @@ return (
                             <div className="total-number number">-$0.00</div>
                         </div>
                         {/*TODO: MODAL RELOADS PAGE ISSUE*/}
-                        <LicenseBox className="button-review" text="REVIEW LICENSE"/>
+                        {/*<PolicyBox className="button-review" text="REVIEW LICENSE"/>*/}
+
+                        <button className="coupon-button" type="button" onClick={() => setModalShow(true)}>READ LICENSE</button>
+                        <VerticallyCenteredModal
+                            show={modalShow}
+                            onHide={() => setModalShow(false)}
+                        />
+
                         <div className="agreement">
                             <label className="cart-label">
                                 <input onChange={(e) => checkInputHandler(e)} type="checkbox" name="checked"/>

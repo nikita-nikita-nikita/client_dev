@@ -758,4 +758,4 @@ const PriceCards = () => {
     )
 };
 
-export {PriceCards, LicenseBox};
+export {PriceCards, LicenseBox, VerticallyCenteredModal};
