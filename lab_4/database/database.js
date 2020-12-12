@@ -68,11 +68,11 @@ class Database{
 	}
 
 	getUserByMail(mail){
-		return this.getRow(`SELECT * FROM users WHERE mail=${mail}`);
+		return this.getRow(`SELECT * FROM users WHERE mail='${mail}'`);
 	}
 
 	getUserByUsername(username){
-		return this.getRow(`SELECT * FROM users WHERE username=${username}`);
+		return this.getRow(`SELECT * FROM users WHERE username='${username}'`);
 	}
 
 	getAllUsers(){

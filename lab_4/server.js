@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 //DB.addPurchase(1,2,3).then(console.log, console.log);
-DB.getAllTracks().then(console.log);
+DB.getUserByUsername('vasya').then(console.log, console.log);
 
 
 app.listen( port, () => {
