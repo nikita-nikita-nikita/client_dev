@@ -67,6 +67,14 @@ class Database{
 		return this.getRow(`SELECT * FROM users WHERE id=${id}`);
 	}
 
+	getUserByMail(mail){
+		return this.getRow(`SELECT * FROM users WHERE mail=${mail}`);
+	}
+
+	getUserByUsername(username){
+		return this.getRow(`SELECT * FROM users WHERE username=${username}`);
+	}
+
 	getAllUsers(){
 		return this.getRows(`SELECT * FROM users`);
 	}
