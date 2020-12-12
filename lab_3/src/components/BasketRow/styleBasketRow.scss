@@ -1,16 +1,34 @@
+$heightForLarge: 60px;
+$heightForNotLarge: 50px;
+
+
 .basket__remove-item {
     cursor: pointer;
 }
+
+.main-row {
+    height: 50px !important;
+    transition: .15s ease-in-out;
+}
+.main-row:hover {
+    cursor: pointer;
+    background: #e0e0e0!important;
+}
+
 .row-item {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    border: none !important;
+    min-height: 20px !important;
+    font-weight: 400;
 }
+
 .button {
-    border-radius: 0!important;
-    margin: 0!important;
-    background: none;
-    color: black!important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    background: white;
+    color: #000000 !important;
     padding: 10px;
     letter-spacing: 1px;
     border: 1px solid black;
@@ -18,8 +36,36 @@
 
 .button:hover {
     background-color: black;
-    border-radius: 0!important;
+    border-radius: 0 !important;
     transition: 0.45s;
-    background-size: 30px!important;
-    color: white!important;
+    background-size: 30px !important;
+    color: white !important;
 }
+
+.img-container {
+    height: $heightForNotLarge !important;
+    width: $heightForNotLarge !important;
+    padding: 0!important;
+    .img-cart {
+        height: 100%;
+        object-fit: cover;
+        text-align: center;
+    }
+}
+
+.button-license {
+    text-align: center;
+
+    .button {
+    }
+}
+
+
+@media screen and (min-width: 1920px) {
+    .img-container {
+        width: $heightForLarge !important;
+        height: $heightForLarge !important;
+    }
+}
+
+

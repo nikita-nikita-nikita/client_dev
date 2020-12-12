@@ -1,5 +1,6 @@
 import React from "react";
 import "./stylesContactForm.scss";
+import PlaceHolderOverInput from "./PlaceHolderOverInput";
 
 const ContactForm = () => {
     // todo add validation
@@ -21,7 +22,7 @@ const ContactForm = () => {
                 <label>Subject</label>
             </div>
             <div className="input-container">
-                <input className="message" name="message" required/>
+                <input className="message" name="message" required />
                 <label>Message</label>
             </div>
             <button type="submit" className="invert-button" >SEND MESSAGE</button>

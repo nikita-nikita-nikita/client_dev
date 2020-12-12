@@ -25,16 +25,16 @@ for (let i in tracks) {
 }
 
 const Routing = () => {
-    const[audioInstance, setAudioInstance] = useState(null);
-    const[selectedTrack, setSelectedTrack] = useState(null);
+    const [audioInstance, setAudioInstance] = useState(null);
+    const [selectedTrack, setSelectedTrack] = useState(null);
 
-    return(
+    return (
         <Router>
             <Header/>
             <ReactJkMusicPlayer onAudioPause={() => {
                 setSelectedTrack(null)
             }} mode={"full"} autoPlay={false} audioLists={tracks.map((track) => { // TODO Separate playback from here
-                return({
+                return ({
                     name: track.name,
                     musicSrc: track.audioUrl,
                     cover: track.imgUrl
@@ -43,11 +43,17 @@ const Routing = () => {
                 setAudioInstance(instance)
             }}/>
             <Switch>
-                <Route exact path="/" component={() => <MainPage tracks={tracks} instance={audioInstance} selectedTrack={selectedTrack} setSelectedTrack={setSelectedTrack}/>}/>
+                <Route exact path="/"
+                       component={() => <MainPage tracks={tracks} instance={audioInstance}
+                                                  selectedTrack={selectedTrack}
+                                                  setSelectedTrack={setSelectedTrack}/>}/>
                 <Route exact path="/contact" component={ContactPage}/>
                 <Route exact path="/login" component={LoginPage}/>
                 <Route exact path="/register" component={RegisterPage}/>
-                <Route exact path="/checkout" component={CheckoutPage}/>
+                <Route exact path="/checkout"
+                       component={() => <CheckoutPage tracks={tracks} instance={audioInstance}
+                                                                       selectedTrack={selectedTrack}
+                                                                       setSelectedTrack={setSelectedTrack}/>}/>
             </Switch>
             <Footer/>
         </Router>

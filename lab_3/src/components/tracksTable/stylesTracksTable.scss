@@ -1,73 +1,79 @@
-.tracks-table{
+.tracks-table {
     position: relative;
-    table{
+
+    table {
         width: 90%;
         max-width: 800px;
         margin: 0 auto 20px auto;
+
         tr {
-            border-bottom: 1px solid #c9c9c9;
+            transition: .15s ease-in-out;
+
             &:not(:first-child) {
                 &:hover:not(.selected_tr) {
                     cursor: pointer;
                     background: #e0e0e0;
                 }
             }
-            td{
+            td {
                 text-align: left;
-                &.title{
+
+                &.title {
+                    font-weight: 400;
                     padding-left: 20px;
                     padding-right: 20px;
                     min-width: 200px;
                 }
-                &.time{
+
+                &.time {
                     min-width: 50px;
                 }
-                &.tags{
+
+                &.tags {
                     font-weight: lighter;
                 }
             }
         }
 
 
-        .selected_tr{
-            background: #b52929;
-            &:hover{
-                opacity: 0.9;
-                cursor: pointer;
-            }
+        .selected_tr {
+            transition: .25s ease-in-out;
+            background: rgba(0, 0, 0, 1);
+            color: #ffffff;
+
         }
 
-        .table-head{
-            td{
+        .table-head {
+            td {
                 height: 30px;
                 color: #8b8b8b;
                 font-weight: normal;
-                border: 0;
+                border: 0!important;
             }
         }
     }
 }
 
-@media (max-width: 700px){
-    .tracks-table{
-        tr{
-            td:nth-child(5), th:nth-child(5){
+@media (max-width: 700px) {
+    .tracks-table {
+        tr {
+            td:nth-child(5), th:nth-child(5) {
                 display: none;
             }
 
-            .title{
+            .title {
                 min-width: 0 !important;
             }
         }
     }
 }
 
-@media screen and (min-width: 1920px){
-    #top-10-track-table{
+@media screen and (min-width: 1920px) {
+    #top-10-track-table {
         max-width: 1200px;
     }
 }
 
-.progress-bar{
+.progress-bar {
     background: none;
 }

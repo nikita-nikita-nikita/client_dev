@@ -6,18 +6,12 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 const Track = ({track, instance, selectedTrack, setSelectedTrack}) => {
     //const[track, setAudioInstance] = useState(null);
 
-    return(
+    return (
         <tr className={selectedTrack === track.index ? "selected_tr" : ""} onClick={() => {
-            if (selectedTrack === track.index) {
-                setSelectedTrack(null);
-                instance.pause();
-            } else {
-                instance.playByIndex(track.index);
-                setSelectedTrack(track.index);
-            }
+            PlayBack({track, instance, selectedTrack, setSelectedTrack})
         }}>
             <td className="td-img">
-                <img src={track.imgUrl}/>
+                <img className="td-img-main" src={track.imgUrl} alt="beat image"/>
             </td>
             <td className="title">
                 {track.name}
@@ -33,12 +27,22 @@ const Track = ({track, instance, selectedTrack, setSelectedTrack}) => {
             </td>
             <td className="add-to-cart">
                 <button className="cart_button">
-                    <FontAwesomeIcon icon={faShoppingCart}/>ADD
+                    <FontAwesomeIcon icon={faShoppingCart}/> ADD
                 </button>
             </td>
         </tr>
     );
 }
 
+// Playback functionality
+const PlayBack = ({track, instance, selectedTrack, setSelectedTrack}) => {
+    if (selectedTrack === track.index) { // Set up current track utility
+        setSelectedTrack(null);
+        instance.pause();
+    } else {
+        instance.playByIndex(track.index);
+        setSelectedTrack(track.index);
+    }
+}
 
-export default Track;
+export {Track, PlayBack};

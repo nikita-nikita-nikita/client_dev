@@ -1,11 +1,49 @@
 .header {
-    display: flex;
-    align-content: space-around;
-    height: 50px;
-    margin-top: 20px;
+    font-weight: lighter;
     .header-item {
-        display: flex!important;
-        vertical-align: center!important;
-        align-content: space-around!important;
+        background: none!important;
+        border: none!important;
+    }
+}
+
+.container {
+    display: flex;
+    margin-top: 20px;
+    padding: 10px!important;
+    .cart {
+        background: none;
+        border: none;
+    }
+    .sidebar {
+
+    }
+}
+.separator {
+    padding: 0 !important;
+    height: 20px !important;
+    margin: 0;
+    text-align: left;
+}
+.sidebar-container {
+    padding: 30px 10px 10px 10px!important;
+    .label-style {
+        color: white;
+        font-weight: 400;
+        font-size: .9rem;
+    }
+    .coupon-input {
+        width: 100%;
+        border: white 1px solid;
+    }
+}
+
+@media (max-width: 700px){
+    tr{
+        td:nth-child(5), th:nth-child(5){
+            display: none;
+        }
+    }
+    .container {
+        flex-direction: column;
     }
 }

@@ -1,16 +1,17 @@
-$heightForLarge : 60px;
-$heightForNotLarge : 50px;
+$heightForLarge: 60px;
+$heightForNotLarge: 50px;
 
-td{
+td {
     height: 50px;
     text-align: center;
     font-weight: bold;
 }
 
-.td-img{
+.td-img {
     height: $heightForNotLarge;
     width: $heightForNotLarge;
-    img{
+    padding: 0!important;
+    .td-img-main {
         height: 100%;
         width: 100%;
         object-fit: cover;
@@ -18,39 +19,41 @@ td{
 }
 
 .cart_button {
-    border: 0;
+    font-weight: 400;
+    color: white;
+    border: white 1px solid;
     padding: 7px;
-    background: #c9c9c9;
-    font-weight: bold;
-    border-radius: 3px;
-
-    &:hover{
-        color: #c9c9c9;
-        background: #2a2a2a;
+    background: black;
+    transition: .25s ease-in-out;
+    &:hover {
+        border: black 1px solid;
+        color: black;
+        background: white;
     }
 }
 
-.tags{
+.tags {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
 }
 
-.tag{
+.tag {
     font-size: 10px;
     font-weight: bold;
     border: 1px solid #CCCCCC;
-    padding: 0px 4px;
+    padding: 0 4px;
     margin: 2px;
     border-radius: 3px;
-    letter-spacing: 2px!important;
-    &:hover{
+    letter-spacing: 2px !important;
+
+    &:hover {
         text-decoration: underline;
     }
 }
 
-@media screen and (min-width: 1920px){
-    .td-img{
+@media screen and (min-width: 1920px) {
+    .td-img {
         width: $heightForLarge;
         height: $heightForLarge;
     }

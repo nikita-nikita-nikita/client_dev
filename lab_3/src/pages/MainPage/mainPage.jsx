@@ -7,10 +7,12 @@ import MainPageContact from "../../containers/MainPageContact";
 const MainPage = ({tracks, instance, selectedTrack, setSelectedTrack}) =>
     (
         <>
-                <BigSearch/>
-                <TracksTable tracks={tracks} instance={instance} selectedTrack={selectedTrack} setSelectedTrack={setSelectedTrack}/>
-                <PriceCards/>
-                <MainPageContact/>
+            <BigSearch/>
+            <TracksTable tracks={tracks} instance={instance}
+                         selectedTrack={selectedTrack}
+                         setSelectedTrack={setSelectedTrack}/>
+            <PriceCards/>
+            <MainPageContact/>
         </>
     );
 

@@ -1,30 +1,35 @@
 import React from "react";
 import './styleBasketRow.scss';
-import {Col, Row} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTimes} from "@fortawesome/free-solid-svg-icons";
 import {LicenseBox} from "../priceCards";
+import {Table} from "semantic-ui-react";
 
-const BasketRow = ({product, amount, license, url}) => {
+
+const BasketRow = ({product, amount, licenseType, imgUrl}) => {
     return (
-        <Row className="align-items-center">
-            <Col sm={2}><img className='w-100'
-                             src={url}
-                             alt="Track"/>
-            </Col>
-            <Col className="row-item" sm={4}>
+        <Table.Row className="main-row">
+            <Table.Cell verticalAlign="middle" textAlign="center" className="img-container row-item" sm={2}>
+                <img className='img-cart'
+                     src={imgUrl}
+                     alt="Track"/>
+            </Table.Cell>
+            <Table.Cell textAlign="left" verticalAlign="middle" className="row-item">
                 {product}
-            </Col>
-            <Col className="row-item" sm={3}>
+            </Table.Cell>
+            <Table.Cell textAlign="center" verticalAlign="middle" className="row-item">
+                {licenseType}
+            </Table.Cell>
+            <Table.Cell textAlign="center" verticalAlign="middle" className="row-item">
                 {amount}
-            </Col>
-            <Col sm={2}>
+            </Table.Cell>
+            <Table.Cell width={1} verticalAlign="middle" className="row-item button-license">
                 <LicenseBox className="button" text="License"/>
-            </Col>
-            <Col sm={1}>
+            </Table.Cell>
+            <Table.Cell width={1} verticalAlign="middle" className="row-item">
                 <FontAwesomeIcon className='basket__remove-item' icon={faTimes}/>
-            </Col>
-        </Row>
+            </Table.Cell>
+        </Table.Row>
     )
 }
 

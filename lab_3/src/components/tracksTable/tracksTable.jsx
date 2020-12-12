@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import "./stylesTracksTable.scss";
-import Track from "./track";
+import {Track} from "./track";
 
 const TracksTable = ({tracks, instance, selectedTrack, setSelectedTrack}) =>{
     return (

@@ -1,3 +1,3 @@
-import Track from "./track";
+import {Track, PlayBack} from "./track";
 
-export default Track;
+export {Track, PlayBack};
