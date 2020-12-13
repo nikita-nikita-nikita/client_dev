@@ -69,7 +69,7 @@ return (
                         <Table.HeaderCell width={3} textAlign="center" className="header-item">LICENSE
                             TYPE</Table.HeaderCell>
                         <Table.HeaderCell width={1} textAlign="center" className="header-item">AMOUNT</Table.HeaderCell>
-                        <Table.HeaderCell width={3} textAlign="left" className="header-item">LICENSE
+                        <Table.HeaderCell width={3} textAlign="center" className="header-item">LICENSE
                             REVIEW</Table.HeaderCell>
                         <Table.HeaderCell width={1} textAlign="left" className="header-item"> </Table.HeaderCell>
                     </Table.Row>
