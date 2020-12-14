@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 
 import Footer from "../../components/footer/footer";
-import tracks from '../../data/beats.json';
+//import tracks from '../../data/beats.json';
 import ReactJkMusicPlayer from "react-jinke-music-player";
 import 'react-jinke-music-player/assets/index.css';
 import 'react-jinke-music-player/lib/styles/index.less'
@@ -19,14 +19,20 @@ import LoginPage from "../../pages/authPages/LoginPage";
 import RegisterPage from "../../pages/authPages/RegisterPage";
 import CheckoutPage from "../../pages/checkoutPage";
 
+import getTracks from "../../services/tracks"
 
-for (let i in tracks) {
-    tracks[i].index = i; // TODO Refactor playback code, export play functionality
-}
+// for (let i in tracks) {
+//     tracks[i].index = i; // TODO Refactor playback code, export play functionality
+// }
 
 const Routing = () => {
     const [audioInstance, setAudioInstance] = useState(null);
     const [selectedTrack, setSelectedTrack] = useState(null);
+    const [tracks, setTracks] = useState([]);
+
+    getTracks.then((message) => {
+        setTracks(message.data)
+    },console.log);
 
     return (
         <Router>
@@ -43,6 +49,7 @@ const Routing = () => {
                 setAudioInstance(instance)
             }}/>
             <Switch>
+
                 <Route exact path="/"
                        component={() => <MainPage tracks={tracks} instance={audioInstance}
                                                   selectedTrack={selectedTrack}

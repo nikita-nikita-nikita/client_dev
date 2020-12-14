@@ -7,7 +7,7 @@ const Track = ({track, instance, selectedTrack, setSelectedTrack}) => {
     //const[track, setAudioInstance] = useState(null);
 
     return (
-        <tr className={selectedTrack === track.index ? "selected_tr" : ""} onClick={() => {
+        <tr className={selectedTrack === track.id ? "selected_tr" : ""} onClick={() => {
             PlayBack({track, instance, selectedTrack, setSelectedTrack})
         }}>
             <td className="td-img">
@@ -36,12 +36,12 @@ const Track = ({track, instance, selectedTrack, setSelectedTrack}) => {
 
 // Playback functionality
 const PlayBack = ({track, instance, selectedTrack, setSelectedTrack}) => {
-    if (selectedTrack === track.index) { // Set up current track utility
+    if (selectedTrack === track.id) { // Set up current track utility
         setSelectedTrack(null);
         instance.pause();
     } else {
-        instance.playByIndex(track.index);
-        setSelectedTrack(track.index);
+        instance.playByIndex(track.id - 1);
+        setSelectedTrack(track.id);
     }
 }
 
