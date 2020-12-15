@@ -19,9 +19,10 @@ function VerticallyCenteredModal(props) {
                {...props}
                size="lg"
                centered
+               scrollable
         >
             <Modal.Header className="modal-header" closeButton>
-                FULL LICENSE
+                <div className="modal-header-text">FULL LICENSE DESCRIPTION</div>
             </Modal.Header>
             <Modal.Body>
                 <p>This Non-Exclusive&nbsp;<strong>Unlimited Lease</strong>&nbsp;License Agreement (the “Agreement”),

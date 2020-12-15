@@ -2,13 +2,28 @@ import React, {useState} from "react";
 import "./stylesTrack.scss";
 import {faShoppingCart} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {setAudioInstance, setSelectedTrack, addedToCart} from "../../../redux/actions";
+import {connect} from 'react-redux';
 
 const Track = ({track, instance, selectedTrack, setSelectedTrack}) => {
-    //const[track, setAudioInstance] = useState(null);
 
+    // Playback functionality
+    const PlayBack = ({track, instance, selectedTrack,}) => {
+        console.log("PLAY BACK!");
+        if (selectedTrack === track.id) { // Set up current track utility
+            console.log("STOP");
+
+            setSelectedTrack(null);
+            instance.pause();
+        } else {
+            console.log("PLAY BY INDEX");
+            instance.playByIndex(track.id - 1);
+            setSelectedTrack(track.id);
+        }
+    }
     return (
         <tr className={selectedTrack === track.id ? "selected_tr" : ""} onClick={() => {
-            PlayBack({track, instance, selectedTrack, setSelectedTrack})
+            PlayBack({track, instance, selectedTrack})
         }}>
             <td className="td-img">
                 <img className="td-img-main" src={track.imgUrl} alt="beat image"/>
@@ -26,23 +41,22 @@ const Track = ({track, instance, selectedTrack, setSelectedTrack}) => {
                 {track.tags.map(tag => <b className="tag">#{tag}</b>)}
             </td>
             <td className="add-to-cart">
-                <button className="cart_button">
+                <button className="cart_button" onClick={() => addedToCart({track: track, licenseType: "gavno"})}>
                     <FontAwesomeIcon icon={faShoppingCart}/> ADD
                 </button>
             </td>
         </tr>
+
     );
 }
+const mapStateToProps = () => {
+};
 
-// Playback functionality
-const PlayBack = ({track, instance, selectedTrack, setSelectedTrack}) => {
-    if (selectedTrack === track.id) { // Set up current track utility
-        setSelectedTrack(null);
-        instance.pause();
-    } else {
-        instance.playByIndex(track.id - 1);
-        setSelectedTrack(track.id);
-    }
+const mapDispatchToProps = {
+    setAudioInstance,
+    setSelectedTrack,
+    addedToCart
 }
 
-export {Track, PlayBack};
+
+export default connect(null, mapDispatchToProps)(Track);

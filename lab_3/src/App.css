@@ -32,6 +32,9 @@ button {
 ::-webkit-scrollbar-track {
     position: absolute;
     background-color: #212121;
+    margin-right: 5px!important;
+    transition: .15s ease-in-out;
+
 }
 ::-webkit-scrollbar-thumb {
     background-color: gray;

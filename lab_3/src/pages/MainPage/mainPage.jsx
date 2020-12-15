@@ -4,13 +4,11 @@ import TracksTable from "../../components/tracksTable";
 import {PriceCards} from "../../components/priceCards";
 import MainPageContact from "../../containers/MainPageContact";
 
-const MainPage = ({tracks, instance, selectedTrack, setSelectedTrack}) =>
+const MainPage = () =>
     (
         <>
             <BigSearch/>
-            <TracksTable tracks={tracks} instance={instance}
-                         selectedTrack={selectedTrack}
-                         setSelectedTrack={setSelectedTrack}/>
+            <TracksTable />
             <PriceCards/>
             <MainPageContact/>
         </>

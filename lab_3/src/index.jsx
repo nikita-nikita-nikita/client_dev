@@ -2,23 +2,34 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import store from "./redux/stores";
-import {addedToCart, removedFromCart} from "./redux/actions";
+import {addedToCart,
+    removedFromCart,
+    loggedIn,
+    purchased,
+    beatsFetched,
+    pricesFetched,
+    setAudioInstance,
+    setSelectedTrack} from './redux/actions';
+import {Provider} from 'react-redux';
 
-console.log(store.getState());
-
-store.dispatch(addedToCart({id : 1}));
-store.dispatch(addedToCart({id : 2}));
-store.dispatch(addedToCart({id : 3}));
-
-console.log(store.getState());
 
 
-store.dispatch(removedFromCart({id : 4}))
-store.dispatch(removedFromCart({id : 1}))
+// store.dispatch(addedToCart({id: 5, licenseType: "bibamp3"}));
+// store.dispatch(addedToCart({id: 6, licenseType: "chlenmp3"}));
+// store.dispatch(addedToCart({id: 7, licenseType: "chlenmp3"}));
+//
+// store.dispatch(removedFromCart(5));
+//
+// store.dispatch(addedToCart({id: 10, licenseType: "chlenmp3"}));
+//
+// store.dispatch(removedFromCart(6));
 
-console.log(store.getState());
+// store.dispatch(beatsFetched([{id: 5}, {id: 6}, {id: 7}]));
+
+// store.dispatch(removedFromCart(4));
+
 
 ReactDOM.render(
-    <App/>,
+    <Provider store={store}><App/></Provider>,
   document.getElementById('root')
 );

@@ -1,48 +1,41 @@
-import * as actions from "../actionTypes";
+import {combineReducers} from "redux";
+import shoppingCart from './cart';
+import beatList from "./beat-list";
+import pricesList from "./prices";
+import customer from "./customer";
+import audio from './audio';
 
-let initialState = {
-    cart: [],
-    isLoggedIn: false
-};
-
-const reducer = (state = initialState, action) => {
-
-    switch (action.type) {
-        case actions.ADDED_TO_CART:
-            return ({
-                    cart: [
-                        ...state.cart,
-                        action.payload
-                    ],
-                    isLoggedIn: state.isLoggedIn
-                }
-            )
-        case actions.REMOVED_FROM_CART:
-            let trackIndex = state.cart.findIndex(({id}) => id === action.payload.id);
-            console.log(state.cart.slice(0, trackIndex), "HERE");
-            if (trackIndex === -1) {
-                return ({
-                        cart: state.cart,
-                        isLoggedIn: state.isLoggedIn
-                    }
-                )
-            }
-            return ({
-                    cart: [
-                        ...state.cart.slice(0, trackIndex),
-                        ...state.cart.slice(trackIndex + 1, state.cart.length)
-                    ],
-                    isLoggedIn: state.isLoggedIn
-                }
-            )
-        case actions.LOGGED_IN:
-            return ({
-                cart: state.cart,
-                isLoggedIn: !state.isLoggedIn
-            })
-        default:
-            return state;
+const initialState = {
+    play: {
+        selectedTrack: null,
+        audioInstance: null,
+    },
+    beatList: {
+        beatList: []
+    },
+    shoppingCart: {
+        cart: [],
+        totalPrice: 0
+    },
+    customer: {
+        isLoggedIn: false,
+        purchasedList: []
+    },
+    prices: {
+        mp3Lease: 0,
+        wavLease: 0,
+        trackOutLease: 0,
+        unlimitedLease: 0
     }
 };
 
-export default reducer;
+
+const rootReducer = combineReducers({
+    shoppingCart,
+    pricesList,
+    beatList,
+    customer,
+    audio
+});
+
+export default rootReducer;

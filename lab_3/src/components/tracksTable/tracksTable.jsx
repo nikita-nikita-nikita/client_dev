@@ -1,8 +1,11 @@
 import React, {useState} from "react";
 import "./stylesTracksTable.scss";
-import {Track} from "./track";
+import Track from "./track";
+import {connect} from 'react-redux';
 
-const TracksTable = ({tracks, instance, selectedTrack, setSelectedTrack}) =>{
+
+const TracksTable = ({beatList, audio}) => {
+
     return (
         <div className="tracks-table">
             <table cellSpacing={0} id="top-10-track-table">
@@ -22,16 +25,21 @@ const TracksTable = ({tracks, instance, selectedTrack, setSelectedTrack}) =>{
                     </td>
                     <td/>
                 </tr>
-                { tracks.map(track => <Track track={track}
-                                            instance={instance}
-                                            selectedTrack={selectedTrack}
-                                            setSelectedTrack={setSelectedTrack}/>
-                                            )
+                {
+                    beatList.beatList.map(beat => <Track key={beat.id}
+                                                track={beat}
+                                                instance={audio.audioInstance}
+                                                selectedTrack={audio.selectedTrack}/>
+                    )
                 }
             </table>
         </div>
     );
 }
 
+const mapStateToProps = ({beatList, audio}) => ({
+    beatList,
+    audio
+});
 
-export default TracksTable;
+export default connect(mapStateToProps)(TracksTable);

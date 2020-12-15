@@ -24,6 +24,7 @@ tr {
 }
 
 .cart_button {
+    z-index: 9999999!important;
     font-weight: 400;
     white-space: nowrap;
     color: white;

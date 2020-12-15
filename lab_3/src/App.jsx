@@ -5,10 +5,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'semantic-ui-css/semantic.min.css';
 import Routing from "./containers/Routing";
 
-const App = () => (
-    <ErrorBoundary>
-        <Routing/>
-    </ErrorBoundary>
-);
+const App = () => {
+
+    return (
+        <ErrorBoundary>
+            <Routing/>
+        </ErrorBoundary>
+    )
+};
 
 export default App;

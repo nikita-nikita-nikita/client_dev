@@ -247,11 +247,16 @@
 }
 
 .modal-content {
-    border: none !important;
+    border: lightgray 1px solid;
     border-radius: 0 !important;
     box-shadow: 0 0 15px 1px white;
+    margin: 10px!important;
 }
 
 .modal-header {
-    text-align: center !important;
+
+    .modal-header-text {
+        width: 100%;
+        text-align: center!important;
+    }
 }

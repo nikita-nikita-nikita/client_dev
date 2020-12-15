@@ -1,11 +1,9 @@
 import React from "react";
 import Basket from "../../components/Basket";
 
-const CheckoutPage = ({tracks, instance, selectedTrack, setSelectedTrack}) => {
+const CheckoutPage = () => {
     return (
-        <Basket tracks={tracks} instance={instance}
-                selectedTrack={selectedTrack}
-                setSelectedTrack={setSelectedTrack}/>
+        <Basket />
     )
 }
 

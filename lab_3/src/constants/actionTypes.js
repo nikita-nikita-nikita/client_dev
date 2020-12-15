@@ -1,0 +1,11 @@
+export const ADDED_TO_CART = "ADDED_TO_CART";
+export const REMOVED_FROM_CART = "REMOVED_FROM_CART";
+
+export const LOGGED_IN = "LOGGED_IN";
+export const PURCHASED = "PURCHASED";
+
+export const BEATS_FETCHED = "BEATS_FETCHED";
+export const PRICES_FETCHED = "PRICES_FETCHED";
+
+export const SET_AUDIO_INSTANCE = "SET_AUDIO_INSTANCE";
+export const SET_SELECTED_TRACK = "SET_SELECTED_TRACK";
