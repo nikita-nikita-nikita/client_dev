@@ -1,6 +1,7 @@
 .header {
     font-weight: lighter;
     .header-item {
+        font-size: 0.9rem;
         background: none!important;
         border: none!important;
         letter-spacing: 2px;
@@ -216,5 +217,14 @@ form {
 @media screen and (max-width: 866px) {
     .container {
         flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .sidebar-container {
+        margin: 10px;
+    }
+    .container {
+        padding: 5px!important;
     }
 }
