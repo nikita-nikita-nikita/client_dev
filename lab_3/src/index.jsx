@@ -12,8 +12,6 @@ import {addedToCart,
     setSelectedTrack} from './redux/actions';
 import {Provider} from 'react-redux';
 
-
-
 // store.dispatch(addedToCart({id: 5, licenseType: "bibamp3"}));
 // store.dispatch(addedToCart({id: 6, licenseType: "chlenmp3"}));
 // store.dispatch(addedToCart({id: 7, licenseType: "chlenmp3"}));

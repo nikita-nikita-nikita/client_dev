@@ -4,9 +4,11 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTimes} from "@fortawesome/free-solid-svg-icons";
 import {LicenseBox} from "../priceCards";
 import {Table} from "semantic-ui-react";
+import {useDispatch} from "react-redux";
+import {removedFromCart} from "../../redux/actions";
 
-
-const BasketRow = ({product, amount, licenseType, imgUrl}) => {
+const BasketRow = ({id, product, amount, licenseType, imgUrl}) => {
+    const dispatch = useDispatch();
     return (
         <Table.Row className="main-row">
             <Table.Cell verticalAlign="middle" textAlign="center" className="img-container row-item" sm={2}>
@@ -27,7 +29,9 @@ const BasketRow = ({product, amount, licenseType, imgUrl}) => {
                 <LicenseBox className="button" text="License"/>
             </Table.Cell>
             <Table.Cell width={1} verticalAlign="middle" className="row-item">
-                <FontAwesomeIcon className='basket__remove-item' icon={faTimes}/>
+                <button className="remove-from-cart-button" onClick={() => {dispatch(removedFromCart(id))}}><
+                    FontAwesomeIcon className='basket__remove-item' icon={faTimes}/>
+                </button>
             </Table.Cell>
         </Table.Row>
     )

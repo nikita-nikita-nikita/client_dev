@@ -3,9 +3,12 @@ import "./stylesTrack.scss";
 import {faShoppingCart} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {setAudioInstance, setSelectedTrack, addedToCart} from "../../../redux/actions";
-import {connect} from 'react-redux';
 
-const Track = ({track, instance, selectedTrack, setSelectedTrack}) => {
+import {useDispatch} from "react-redux";
+
+const Track = ({track, instance, selectedTrack}) => {
+
+    const dispatch = useDispatch();
 
     // Playback functionality
     const PlayBack = ({track, instance, selectedTrack,}) => {
@@ -13,12 +16,12 @@ const Track = ({track, instance, selectedTrack, setSelectedTrack}) => {
         if (selectedTrack === track.id) { // Set up current track utility
             console.log("STOP");
 
-            setSelectedTrack(null);
+            dispatch(setSelectedTrack(null));
             instance.pause();
         } else {
             console.log("PLAY BY INDEX");
             instance.playByIndex(track.id - 1);
-            setSelectedTrack(track.id);
+            dispatch(setSelectedTrack(track.id));
         }
     }
     return (
@@ -41,7 +44,7 @@ const Track = ({track, instance, selectedTrack, setSelectedTrack}) => {
                 {track.tags.map(tag => <b className="tag">#{tag}</b>)}
             </td>
             <td className="add-to-cart">
-                <button className="cart_button" onClick={() => addedToCart({track: track, licenseType: "gavno"})}>
+                <button className="cart_button" onClick={() => dispatch(addedToCart({track: track, licenseType: "gavno"}))}>
                     <FontAwesomeIcon icon={faShoppingCart}/> ADD
                 </button>
             </td>
@@ -49,14 +52,6 @@ const Track = ({track, instance, selectedTrack, setSelectedTrack}) => {
 
     );
 }
-const mapStateToProps = () => {
-};
-
-const mapDispatchToProps = {
-    setAudioInstance,
-    setSelectedTrack,
-    addedToCart
-}
 
 
-export default connect(null, mapDispatchToProps)(Track);
+export default Track;

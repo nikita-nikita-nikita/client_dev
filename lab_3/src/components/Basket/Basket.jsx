@@ -5,9 +5,10 @@ import {Table} from "semantic-ui-react";
 import PlaceHolderOverInput from "../ContactForm/PlaceHolderOverInput";
 import {Link} from "react-router-dom";
 import {VerticallyCenteredModal} from "../priceCards/priceCards";
-import {connect} from 'react-redux';
+import {useSelector} from 'react-redux';
 
-const Basket = ({shoppingCart}) => {
+const Basket = () => {
+    const shoppingCart = useSelector(state => state.shoppingCart);
 
     const [isDisabled, setDisabled] = React.useState(true);
     const [modalShow, setModalShow] = React.useState(false);
@@ -42,10 +43,13 @@ const Basket = ({shoppingCart}) => {
                 </Table.Header>
                 <Table.Body>
                     {
-                        shoppingCart.cart.map((cartItem) => <BasketRow amount="123123"
-                                                               imgUrl={cartItem.imgUrl}
-                                                               product={cartItem.name}
-                                                               licenseType="mp3 lease"/>
+                        shoppingCart.cart.map((cartItem) =>
+                                <BasketRow
+                                    id={parseInt(cartItem.track.id)}
+                                    amount="123123"
+                                    imgUrl={cartItem.track.imgUrl}
+                                    product={cartItem.track.name}
+                                    licenseType="mp3 lease"/>
                         )
                     }
                     {/*<BasketRow amount={"100$"}*/}
@@ -110,11 +114,6 @@ const Basket = ({shoppingCart}) => {
     )
 };
 
-const mapStateToProps = ({shoppingCart}) => {
-    console.log(shoppingCart, " MAP STATE TO PROPS ")
-    return shoppingCart;
 
-};
-
-export default connect(mapStateToProps, null)(Basket);
+export default Basket;
 

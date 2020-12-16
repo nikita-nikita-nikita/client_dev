@@ -3,6 +3,7 @@ import "./stylesContactForm.scss";
 import PlaceHolderOverInput from "./PlaceHolderOverInput";
 
 const ContactForm = () => {
+
     // todo add validation
     // todo add textarea instead of input message
     return (
@@ -34,4 +35,6 @@ const ContactForm = () => {
     )
 }
 
-export default ContactForm;
+
+
+export default (ContactForm);
