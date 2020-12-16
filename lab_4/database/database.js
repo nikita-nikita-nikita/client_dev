@@ -117,6 +117,10 @@ class Database{
 	getTrackTags(id){
 		return this.request(`SELECT tn.name FROM tags t JOIN tag_names tn ON t.tag_id = tn.id WHERE track_id=${id}`);
 	}
+
+	getAllPrices(){
+		return this.getRows(`SELECT * FROM prices`);
+	}
 }
 
 const DB = new Database();
