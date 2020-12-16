@@ -34,7 +34,6 @@ const Routing = ({setAudioInstance, setSelectedTrack, beatsFetched, beatList}) =
 
     getTracks.then((message) => {
         beatsFetched(message.data);
-        console.log(message.data)
     }, console.log);
 
     return (

@@ -1,0 +1,53 @@
+.license-model-content {
+    border: none !important;
+}
+
+.license-model-action {
+    border: 1px solid white;
+}
+
+.actions {
+    border: none !important;
+}
+
+.licenses-container {
+    display: grid;
+    width: 100%;
+    grid-template:  "a a a a"
+                    "b b b b";
+    flex-grow: 1;
+    flex-wrap: nowrap;
+    align-items: start;
+    box-sizing: border-box;
+    flex-direction: row;
+
+    .mp3-lease {
+        grid-area: a;
+    }
+
+    .wav-lease {
+        grid-area: a;
+
+    }
+
+    .tracked-out-lease {
+        grid-area: a;
+
+    }
+
+    .unlimited-lease {
+        grid-area: a;
+    }
+
+    .exclusive-lease {
+        grid-area: b;
+    }
+
+}
+.license-button-choice {
+    width: 277px!important;
+    margin: 10px!important;
+}
+.track-description-container {
+
+}

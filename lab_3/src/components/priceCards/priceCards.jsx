@@ -10,9 +10,6 @@ import CardDeck from 'react-bootstrap/CardDeck';
 import Modal from 'react-bootstrap/Modal';
 
 
-
-
-
 function VerticallyCenteredModal(props) {
     return (
         <Modal className="modal-pop"

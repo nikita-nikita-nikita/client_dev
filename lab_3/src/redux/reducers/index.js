@@ -6,7 +6,7 @@ import customer from "./customer";
 import audio from './audio';
 
 const initialState = {
-    play: {
+    audio: {
         selectedTrack: null,
         audioInstance: null,
     },
