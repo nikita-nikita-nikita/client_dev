@@ -1,48 +1,96 @@
 import React from 'react';
-import {Modal, Button} from "react-bootstrap";
+import './license-type-modal.scss';
+import {Row, Col} from 'react-bootstrap'
+import {Button, Header, Icon, Modal} from 'semantic-ui-react'
+import {faTimes} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faShoppingCart} from "@fortawesome/free-solid-svg-icons";
+import {useDispatch, useSelector} from "react-redux";
+import {addedToCart} from "../../redux/actions";
 
 const LicenseTypeModal = (props) => {
+    const [open, setOpen] = React.useState(false)
+    const dispatch = useDispatch();
 
     return (
         <Modal
-            {...props}
-            size="lg"
-            aria-labelledby="contained-modal-title-vcenter"
+            dimmer="blurring"
+            className="license__main-modal-container"
+            basic
+            onClose={() => setOpen(false)}
+            onOpen={() => setOpen(true)}
+            open={open}
+            size='small'
             centered
+            trigger={
+                <button className={props.buttonClass} onClick={() => setOpen(true)}>
+                    <FontAwesomeIcon icon={faShoppingCart}/> ADD
+                </button>}
         >
-            <Modal.Header closeButton>
-                <Modal.Title id="contained-modal-title-vcenter">
-                    Modal heading
-                </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <div className="track-description-container">
-                    4ereshn9
-                </div>
-                <div className="licenses-container">
-                    <div className="license-button-choice mp3-lease">
-                        <div>MP3 LEASE</div>
-                    </div>
-                    <button type="button" className="license-button-choice">
-                        <div>WAV LEASE</div>
+            <Header className="track-description-container" icon>
+                4ereshn9
+            </Header>
+            <Modal.Content className="licenses-container">
 
-                    </button>
-                    <button type="button" className="license-button-choice tracked-out-lease">
-                        <div>TRACKED OUT LEASE</div>
-                    </button>
-                    <button type="button" className="license-button-choice unlimited-lease">
-                        <div>UNLIMITED LEASE</div>
-                    </button>
-                    <button type="button" className="license-button-choice exclusive-lease">
-                        EXCLUSIVE
-                    </button>
-                </div>
-            </Modal.Body>
-            <Modal.Footer>
-                <Button onClick={props.onHide}>Close</Button>
-            </Modal.Footer>
+                <Row>
+                    <Col xl={3} md={4} sm={12}>
+                        <button onClick={() => console.log("CLICK LICENSE")} className="license-button-choice mp3-lease">
+                            <div className="license__choice-caption">MP3 LEASE</div>
+                            <div className="license__choice-price">$29.90</div>
+                            <div className="license__choice-desc">MP3</div>
+                            <div className="popup">CLICK TO ADD IN YOUR CART</div>
+                        </button>
+                    </Col>
+                    <Col xl={3} md={4} sm={12}>
+                        <button type="button" className="license-button-choice wav-lease">
+                            <div className="license__choice-caption">WAV LEASE</div>
+                            <div className="license__choice-price">$39.90</div>
+                            <div className="license__choice-desc">MP3 AND WAV</div>
+                            <div className="popup">CLICK TO ADD IN YOUR CART</div>
+
+                        </button>
+                    </Col>
+                    <Col xl={3} md={4} sm={12}>
+                        <button type="button" className="license-button-choice tracked-out-lease">
+                            <div className="license__choice-caption">TRACKED OUT LEASE</div>
+                            <div className="license__choice-price">$99.90</div>
+                            <div className="license__choice-desc">MP3, WAV AND TRACK STEMS</div>
+                            <div className="popup">CLICK TO ADD IN YOUR CART</div>
+
+                        </button>
+                    </Col>
+                    <Col xl={3} md={6} sm={12}>
+                        <button type="button" className="license-button-choice unlimited-lease">
+                            <div className="license__choice-caption">UNLIMITED LEASE</div>
+                            <div className="license__choice-price">$199.90</div>
+                            <div className="license__choice-desc">MP3, WAV AND TRACK STEMS</div>
+                            <div className="popup">CLICK TO ADD IN YOUR CART</div>
+
+                        </button>
+                    </Col>
+
+                    <Col xl={12} md={6} sm={12}>
+                        <button type="button" className="license-button-choice unlimited-lease">
+                            <div className="license__choice-caption">EXCLUSIVE</div>
+                            <div className="license__choice-price">~</div>
+                            <div className="license__choice-desc">JUST CONTACT ME VIA CONTACT FORM OR USING
+                                EMAIL/INSTAGRAM
+                            </div>
+                            <div className="popup">CLICK TO GO TO CONTACT PAGE</div>
+
+                        </button>
+                    </Col>
+                </Row>
+            </Modal.Content>
+            <Modal.Actions>
+                <Button basic color='white' className="license__choice-close-button" inverted
+                        onClick={() => setOpen(false)}>
+                    <div className="license__close-button-icon"><FontAwesomeIcon icon={faTimes}/> Close</div>
+                </Button>
+            </Modal.Actions>
         </Modal>
     )
 }
 
 export default LicenseTypeModal;
+
