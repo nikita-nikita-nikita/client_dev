@@ -4,6 +4,7 @@ import beatList from "./beat-list";
 import pricesList from "./prices";
 import customer from "./customer";
 import audio from './audio';
+import search from './search';
 
 const initialState = {
     audio: {
@@ -26,6 +27,9 @@ const initialState = {
         wavLease: 0,
         trackOutLease: 0,
         unlimitedLease: 0
+    },
+    search: {
+        query: ""
     }
 };
 
@@ -35,7 +39,8 @@ const rootReducer = combineReducers({
     pricesList,
     beatList,
     customer,
-    audio
+    audio,
+    search
 });
 
 export default rootReducer;

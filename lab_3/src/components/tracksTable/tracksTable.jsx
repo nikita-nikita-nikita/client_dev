@@ -1,10 +1,12 @@
 import React, {useState} from "react";
 import "./stylesTracksTable.scss";
 import Track from "./track";
-import {connect} from 'react-redux';
-
+import {connect, useSelector} from 'react-redux';
 
 const TracksTable = ({beatList, audio}) => {
+
+    const search = useSelector(state => state.search);
+
 
     return (
         <div className="tracks-table">
@@ -26,15 +28,39 @@ const TracksTable = ({beatList, audio}) => {
                     <td/>
                 </tr>
                 {
-                    beatList.beatList.map(beat => <Track key={beat.id}
-                                                track={beat}
-                                                instance={audio.audioInstance}
-                                                selectedTrack={audio.selectedTrack}/>
+                    beatList.beatList.map(beat => {
+                        return filter(beat, search.query) ? <Track key={beat.id}
+                                      track={beat}
+                                      instance={audio.audioInstance}
+                                      selectedTrack={audio.selectedTrack}/>:null;
+                        }
                     )
                 }
             </table>
         </div>
     );
+}
+
+const filter = (beat, q) => {
+    if(q === ""){
+        return true;
+    }
+
+    const queries = q.split(" ");
+
+
+
+    for(let query of queries){
+        if(
+            (query !== "") &&
+            ((beat.name.toLowerCase().includes(query.toLowerCase())) ||
+            (beat.bpm.toString().includes(query.toLowerCase())) ||
+            (beat.tags.join(" ").toLowerCase().includes(query.toLowerCase())))
+        )
+            return true;
+    }
+
+    return false;
 }
 
 const mapStateToProps = ({beatList, audio}) => ({
