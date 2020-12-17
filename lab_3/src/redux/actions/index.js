@@ -40,6 +40,11 @@ const setAudioInstance = (payload) => ({
     payload: payload
 })
 
+const setSearch = (search) => ({
+    type: actions.SET_SEARCH,
+    payload: search
+})
+
 export {
     addedToCart,
     removedFromCart,
@@ -48,5 +53,6 @@ export {
     beatsFetched,
     pricesFetched,
     setAudioInstance,
-    setSelectedTrack
+    setSelectedTrack,
+    setSearch
 };
