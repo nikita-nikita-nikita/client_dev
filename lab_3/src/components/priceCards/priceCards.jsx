@@ -8,6 +8,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {AccordionContext, useAccordionToggle} from "react-bootstrap";
 import CardDeck from 'react-bootstrap/CardDeck';
 import Modal from 'react-bootstrap/Modal';
+import {useSelector} from "react-redux";
 
 
 function VerticallyCenteredModal(props) {
@@ -461,7 +462,9 @@ const ContextAwareToggle = ({eventKey, callback}) => {
 
 const PriceCards = () => {
     const [activeKey, setActiveKey] = useState(null);
+    const prices = useSelector(state => state.pricesList);
 
+    console.log(prices);
     return (
         <CardDeck className="card-container">
             <Card className="card popular-card">
@@ -471,7 +474,7 @@ const PriceCards = () => {
                         Wav Lease
                     </div>
                     <div className="price">
-                        $49.99
+                        ${prices[1].price}
                     </div>
                     <div className="per-unit">
                         PER UNIT
@@ -529,7 +532,7 @@ const PriceCards = () => {
                         MP3 Lease
                     </div>
                     <div className="price">
-                        $29.99
+                        ${prices[0].price}
                     </div>
                     <div className="per-unit">
                         PER UNIT
@@ -586,7 +589,7 @@ const PriceCards = () => {
                     Track Out Lease
                 </div>
                 <div className="price">
-                    $99.99
+                    ${prices[2].price}
                 </div>
                 <div className="per-unit">
                     PER UNIT
@@ -644,7 +647,7 @@ const PriceCards = () => {
                         Unlimited Lease
                     </div>
                     <div className="price">
-                        $219.99
+                        ${prices[3].price}
                     </div>
                     <div className="per-unit">
                         PER UNIT
@@ -756,4 +759,7 @@ const PriceCards = () => {
     )
 };
 
-export {PriceCards, LicenseBox, VerticallyCenteredModal};
+
+export default PriceCards;
+export {LicenseBox};
+export {VerticallyCenteredModal};

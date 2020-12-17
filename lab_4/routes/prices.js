@@ -9,8 +9,8 @@ router.get("/", async (req, res, next) => {
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
     res.setHeader('Access-Control-Allow-Credentials', true);
 
-    let tracks = await DB.getAllPrices();
-    res.send(tracks);
+    let prices = await DB.getAllPrices();
+    res.send(prices);
 });
 
 module.exports = router;

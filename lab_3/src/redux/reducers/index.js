@@ -22,7 +22,7 @@ const initialState = {
         isLoggedIn: false,
         purchasedList: []
     },
-    prices: {
+    pricesList: {
         mp3Lease: 0,
         wavLease: 0,
         trackOutLease: 0,

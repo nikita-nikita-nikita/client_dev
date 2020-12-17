@@ -1,4 +1,6 @@
 
-import {PriceCards, LicenseBox} from "./priceCards";
+import {LicenseBox} from "./priceCards";
+import PriceCards from "./priceCards";
 
-export {PriceCards, LicenseBox};
+export {LicenseBox};
+export default PriceCards;

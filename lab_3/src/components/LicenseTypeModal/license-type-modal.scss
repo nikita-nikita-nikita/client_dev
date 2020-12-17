@@ -191,6 +191,20 @@
     transform: translateY(100px)
 }
 
+.modal-transition-enter {
+    opacity: 0;
+}
+.modal-transition-active {
+    opacity: 1;
+    transition: opacity 200ms;
+}
+.modal-transition-exit {
+    opacity: 1;
+}
+.modal-transition-active {
+    opacity: 0;
+    transition: opacity 200ms;
+}
 
 @keyframes close {
     0% {

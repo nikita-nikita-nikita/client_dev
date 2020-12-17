@@ -17,6 +17,8 @@ const Basket = () => {
         setDisabled(!isDisabled)
     };
 
+    const cartGross = shoppingCart.cart.map(({amount}) => amount).reduce((a, b) => a + b, 0);
+
     return (
         <div className="container">
             <Table className="cart" celled structured striped unstackable>
@@ -41,15 +43,18 @@ const Basket = () => {
                         </Table.HeaderCell>
                     </Table.Row>
                 </Table.Header>
+
                 <Table.Body>
                     {
-                        shoppingCart.cart.map((cartItem) =>
-                                <BasketRow
-                                    id={parseInt(cartItem.track.id)}
-                                    amount="123123"
-                                    imgUrl={cartItem.track.imgUrl}
-                                    product={cartItem.track.name}
-                                    licenseType="mp3 lease"/>
+
+                        shoppingCart.cart.map((cartItem, i) =>
+                            <BasketRow
+                                key={i}
+                                id={parseInt(cartItem.track.id)}
+                                amount={cartItem.amount}
+                                imgUrl={cartItem.track.imgUrl}
+                                product={cartItem.track.name}
+                                licenseType={cartItem.licenseType}/>
                         )
                     }
                     {/*<BasketRow amount={"100$"}*/}
@@ -73,7 +78,9 @@ const Basket = () => {
                         <div className="numbers-container gross">
                             <div>Gross</div>
                             {/*PUT GROSS VALUE HERE*/}
-                            <div className="number">$99.90</div>
+                            <div
+                                className="number">${cartGross}
+                            </div>
                         </div>
                         <div className="numbers-container discount">
                             <div>Discount</div>
@@ -83,7 +90,7 @@ const Basket = () => {
                         <div className="numbers-container total">
                             <div>Total</div>
                             {/*PUT TOTAL VALUE HERE*/}
-                            <div className="total-number number">-$0.00</div>
+                            <div className="total-number number">${cartGross}</div>
                         </div>
                         {/*TODO: MODAL RELOADS PAGE ISSUE*/}
                         {/*<PolicyBox className="button-review" text="REVIEW LICENSE"/>*/}

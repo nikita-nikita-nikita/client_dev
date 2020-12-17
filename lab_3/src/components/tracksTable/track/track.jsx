@@ -5,48 +5,62 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {setAudioInstance, setSelectedTrack, addedToCart} from "../../../redux/actions";
 import LicenseTypeModal from "../../LicenseTypeModal";
 import {useDispatch} from "react-redux";
+import {useSelector} from "react-redux";
 
-const Track = ({track, instance, selectedTrack}) => {
-
+const Track = (props) => {
+    const audio = useSelector(state => state.audio);
     const dispatch = useDispatch();
     const [modalShow, setModalShow] = useState(false);
 
+
     // Playback functionality
-    const PlayBack = ({track, instance, selectedTrack,}) => {
-        console.log("PLAY BACK!");
-        if (selectedTrack === track.id) { // Set up current track utility
+    const PlayBack = (selectedTrack) => {
+        if (selectedTrack === props.track.id) { // Set up current track utility
             console.log("STOP");
 
             dispatch(setSelectedTrack(null));
-            instance.pause();
+            audio.audioInstance.pause();
+            console.log("STOOOOOOOOOOOOOOOP");
         } else {
-            console.log("PLAY BY INDEX");
-            dispatch(setSelectedTrack(track.id));
-            instance.playByIndex(track.id - 1);
+            dispatch(setSelectedTrack(props.track.id));
+            audio.audioInstance.playByIndex(props.track.id - 1);
         }
     }
     return (
-        <tr className={selectedTrack === track.id ? "selected_tr" : ""} onClick={() => {
-            PlayBack({track, instance, selectedTrack})
+        <tr className={props.track.id === audio.selectedTrack ? "selected_tr" : ""} onClick={() => {
+            PlayBack(audio.selectedTrack)
         }}>
             <td className="td-img">
-                <img className="td-img-main" src={track.imgUrl} alt="beat image"/>
+                <img className="td-img-main" src={props.track.imgUrl} alt="beat image"/>
 
             </td>
             <td className="title">
-                {track.name}
+                {props.track.name}
             </td>
             <td className="time">
-                {track.time}
+                {props.track.time}
             </td>
             <td className="bpm">
-                {track.bpm}
+                {props.track.bpm}
             </td>
             <td className="tags">
-                {track.tags.map(tag => <b className="tag">#{tag}</b>)}
+                {props.track.tags.map((tag, i) => <b key={i} className="tag">#{tag}</b>)}
             </td>
             <td className="add-to-cart">
-                <LicenseTypeModal track={track} buttonClass="cart_button" open={modalShow} onHide={() => setModalShow(false)}/>
+                <button className="cart_button" onClick={() => {
+
+                    dispatch(addedToCart({
+                        track: props.track,
+                        amount: "",
+                        licenseType: "MP3 LEASE"
+
+                    }));
+
+                    setModalShow(true);
+                }}>
+                    <FontAwesomeIcon icon={faShoppingCart}/> ADD
+                </button>
+                <LicenseTypeModal track={props.track} buttonClass="cart_button" show={modalShow}/>
             </td>
         </tr>
 

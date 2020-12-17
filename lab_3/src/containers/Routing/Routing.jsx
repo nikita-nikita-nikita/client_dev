@@ -20,36 +20,47 @@ import RegisterPage from "../../pages/authPages/RegisterPage";
 import CheckoutPage from "../../pages/checkoutPage";
 
 import getTracks from "../../services/tracks";
+import getPrices from "../../services/prices";
 
 // redux
-import {connect} from 'react-redux';
+import {connect, useSelector} from 'react-redux';
 import {
     beatsFetched,
     setAudioInstance,
-    setSelectedTrack
+    setSelectedTrack,
+    pricesFetched
 } from '../../redux/actions';
 
 
-const Routing = ({setAudioInstance, setSelectedTrack, beatsFetched, beatList}) => {
+const Routing = ({setAudioInstance, setSelectedTrack, beatsFetched, pricesFetched, beatList}) => {
 
     getTracks.then((message) => {
         beatsFetched(message.data);
     }, console.log);
 
+    getPrices.then((message) => {
+        pricesFetched(message.data)
+    }, console.log)
+
     return (
         <Router>
             <Header/>
-            <ReactJkMusicPlayer onAudioPause={() => {
-                setSelectedTrack(null);
-            }} mode={"full"} autoPlay={false} audioLists={beatList.map((track) => {
-                return ({
-                    name: track.name,
-                    musicSrc: track.audioUrl,
-                    cover: track.imgUrl
-                })
-            })} getAudioInstance={(instance) => {
-                setAudioInstance(instance);
-            }}/>
+            <ReactJkMusicPlayer
+                onAudioPause={() => {
+                    setSelectedTrack(null);
+                }}
+                mode={"full"}
+                autoPlay={false}
+                audioLists={beatList.map((track) => {
+                    return ({
+                        name: track.name,
+                        musicSrc: track.audioUrl,
+                        cover: track.imgUrl
+                    })
+                })}
+                getAudioInstance={(instance) => {
+                    setAudioInstance(instance);
+                }}/>
             <Switch>
 
                 <Route exact path="/"
@@ -72,7 +83,8 @@ const mapStateToProps = ({beatList}) => {
 const mapDispatchToProps = {
     beatsFetched,
     setSelectedTrack,
-    setAudioInstance
+    setAudioInstance,
+    pricesFetched
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Routing);
