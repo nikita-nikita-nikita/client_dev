@@ -46,7 +46,8 @@ const Track = ({track, instance, selectedTrack}) => {
                 {track.tags.map(tag => <b className="tag">#{tag}</b>)}
             </td>
             <td className="add-to-cart">
-                <button className="cart_button" onClick={() => setModalShow(true)}>
+                <button className="cart_button" onClick={() => dispatch(addedToCart({track: track, licenseType: "gavno"}))}>
+
                     <FontAwesomeIcon icon={faShoppingCart}/> ADD
                 </button>
                 <LicenseTypeModal show={modalShow} onHide={() => setModalShow(false)}/>
