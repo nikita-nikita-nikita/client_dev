@@ -30,6 +30,7 @@ const TracksTable = ({beatList, audio}) => {
                     </tr>
                     {
                         beatList.beatList.map((beat) => {
+                                console.log(beat.id);
                                 return filter(beat, search.query) ? <Track key={beat.id}
                                                                            track={beat}
                                 /> : null;

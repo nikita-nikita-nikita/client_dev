@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './license-type-modal.scss';
 import {Row, Col} from 'react-bootstrap'
 import {Button, Header, Icon, Modal} from 'semantic-ui-react'
@@ -10,7 +10,9 @@ import {addedToCart} from "../../redux/actions";
 import {CSSTransition} from 'react-transition-group';
 
 const LicenseTypeModal = (props) => {
-    const [open, setOpen] = React.useState(props.show)
+
+    const [open, setOpen] = useState(props.show);
+
     const dispatch = useDispatch();
     console.log(props);
     const prices = useSelector(state => state.pricesList);

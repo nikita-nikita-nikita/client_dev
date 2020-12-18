@@ -21,7 +21,7 @@ const Header = () => (
 
     <header>
         <Navbar className="justify-content-between bg-black" variant="dark" expand="sm">
-            <Navbar.Brand to="/" as={Link}>ЧЄРЄШНЯ</Navbar.Brand>
+            <Navbar.Brand className="nav__main-caption" to="/" as={Link}>ЧЄРЄШНЯ</Navbar.Brand>
             <Navbar.Toggle id="baton" aria-controls="nav-bar" as={ToggleMenu}/>
             <Navbar.Collapse id="nav-bar">
                 <Nav>

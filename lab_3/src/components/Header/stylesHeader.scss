@@ -1,5 +1,13 @@
 header {
     height: 65px;
+
+    .nav__main-caption {
+        transition: .2s ease-in-out;
+        &:hover {
+            color: #07b007!important;
+
+        }
+    }
     nav {
         height: 100%;
         background-color: black!important;
@@ -9,7 +17,9 @@ header {
         .navbar-collapse {
             flex-grow: 0;
         }
+
         .navbar-nav {
+
             a {
                 margin: 0 7px 0 7px;
                 transition: .4s;
