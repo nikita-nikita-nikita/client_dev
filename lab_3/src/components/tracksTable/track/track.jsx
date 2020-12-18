@@ -66,9 +66,10 @@ const Track = ({track, audio, setSelectedTrack, addedToCart}) => {
 }
 
 const mapStateToProps = (audio) => audio;
+
 const mapDispatchToProps = {
     setSelectedTrack,
     addedToCart
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Track);
