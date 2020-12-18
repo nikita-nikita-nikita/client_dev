@@ -20,11 +20,22 @@ const LicenseTypeModal = (props) => {
     const prices = useSelector(state => state.pricesList);
 
     return (
-        <TransitionablePortal open={show} transition={{animation: 'slide down', duration: 300}}>
+        <TransitionablePortal open={show} transition={{animation: 'zoom', duration: 350}}>
             <Modal
                 dimmer="blurring"
                 className="license__main-modal-container"
                 basic
+                onOpen={(e) => {
+                    e.stopPropagation();
+
+                    setOpen(true);
+                }}
+                onClose={(e) => {
+                    e.stopPropagation();
+
+
+                    setOpen(false);
+                }}
                 open={true}
                 size='small'
                 centered
