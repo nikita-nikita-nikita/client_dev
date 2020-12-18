@@ -13,7 +13,7 @@ const LicenseTypeModal = (props) => {
 
     let show = props.show;
     const setOpen = props.setOpen;
-
+    
     const dispatch = useDispatch();
     console.log(show);
 
