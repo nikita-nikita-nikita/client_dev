@@ -12,19 +12,23 @@ const Track = ({track, audio, setSelectedTrack, addedToCart}) => {
 
     // Playback functionality
     const PlayBack = (selectedTrack) => {
-        if (selectedTrack === track.id) { // Set up current track utility
+        if (selectedTrack === audio.selectedTrack || audio.selectedTrack == null){
 
-            audio.audioInstance.pause();
-            setSelectedTrack(null);
+            if(audio.selectedTrack == null){
+                audio.audioInstance.play();
+                setSelectedTrack(selectedTrack);
+            }else{
+                audio.audioInstance.pause();
+            }
 
-        } else {
-            setSelectedTrack(track.id);
-            audio.audioInstance.playByIndex(track.id - 1);
+        }else{
+            setSelectedTrack(selectedTrack);
+            audio.audioInstance.playByIndex(selectedTrack - 1);
         }
     }
     return (
         <tr className={track.id === audio.selectedTrack ? "selected_tr" : ""} onClick={() => {
-            PlayBack(audio.selectedTrack)
+            PlayBack(track.id)
         }}>
             <td className="td-img">
                 <img className="td-img-main" src={track.imgUrl} alt="beat image"/>
