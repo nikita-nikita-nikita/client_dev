@@ -1,14 +1,14 @@
 const express = require('express');
 const {DB} = require('./database/database')
+const routes = require('./routes/index.js');
 
 const app = express();
 const port = 5000;
-
-const routes = require('./routes/index.js');
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 routes(app);
 
-//app.use(express.json());
-//app.use(express.urlencoded({ extended: true }));
+
 
 
 //DB.addPurchase(1,2,3).then(console.log, console.log);

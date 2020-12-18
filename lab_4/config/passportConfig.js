@@ -43,7 +43,7 @@ passport.use(
             const userByUsername = await getUserByUsername(username);
             if(userByUsername)
                 return done({ status: 401, message: 'Username is already taken.' }, null);
-            return done(null, {email, password})
+            return done(null, {email, password, username})
         }catch (error){
             return done(error)
         }
