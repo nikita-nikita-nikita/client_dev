@@ -8,7 +8,7 @@ const db = new sqlite3.Database('database/database.db', sqlite3.OPEN_READWRITE, 
 });
 
 class Database{
-	request(query){
+	request = (query) => {
 		return new Promise((resolve, reject) => {
 			db.all(query, [], (err, rows) => {
 				if(err){
@@ -20,7 +20,7 @@ class Database{
 		});
 	}
 
-	getRows(query){
+	getRows = (query) => {
 		return new Promise((resolve, reject) => {
 			db.all(query, [], (err, rows) => {
 				if(err){
@@ -32,7 +32,7 @@ class Database{
 		});
 	}
 
-	getRow(query){
+	getRow = (query) => {
 		return new Promise((resolve, reject) => {
 			db.all(query, [], (err, rows) => {
 				if(err){
@@ -47,7 +47,7 @@ class Database{
 		});
 	}
 
-	insertAndReturn(table, query){
+	insertAndReturn = (table, query) => {
 		return new Promise((resolve, reject) => {
 			db.run(query, [], (err) => {
 				if(err){
@@ -59,43 +59,43 @@ class Database{
 		});
 	}
 
-	createUser(username, password, mail){
+	createUser = (username, password, mail) =>{
 		return this.insertAndReturn('users', `INSERT INTO users(username, password, mail) VALUES ('${username}','${password}','${mail}')`);
 	}
 
-	getUserById(id){
+	getUserById = (id) => {
 		return this.getRow(`SELECT * FROM users WHERE id=${id}`);
 	}
 
-	getUserByMail(mail){
+	getUserByMail = (mail) => {
 		return this.getRow(`SELECT * FROM users WHERE mail='${mail}'`);
 	}
 
-	getUserByUsername(username){
+	getUserByUsername = (username) => {
 		return this.getRow(`SELECT * FROM users WHERE username='${username}'`);
 	}
 
-	getAllUsers(){
+	getAllUsers = () => {
 		return this.getRows(`SELECT * FROM users`);
 	}
 
-	getPurchasesByUserId(id){
+	getPurchasesByUserId = (id) => {
 		return this.getRows(`SELECT * FROM purchases WHERE user_id=${id}`);
 	}
 
-	addPurchase(user_id, track_id, type){
+	addPurchase = (user_id, track_id, type) => {
 		return this.insertAndReturn('purchases', `INSERT INTO purchases(user_id, track_id, type) VALUES(${user_id}, ${track_id}, ${type})`)
 	}
 
-	addToBasket(user_id, track_id, type){
+	addToBasket = (user_id, track_id, type) => {
 		return this.insertAndReturn('basket', `INSERT INTO basket(user_id, track_id, type) VALUES(${user_id}, ${track_id}, ${type})`)
 	}
 
-	getTracksInBasketByUserId(id){
+	getTracksInBasketByUserId = (id) => {
 		return this.getRows(`SELECT * FROM basket WHERE user_id=${id}`);
 	}
 
-	removeFromBasketByItemId(id){
+	removeFromBasketByItemId = (id) => {
 		return new Promise((resolve, reject) => {
 			db.run(`DELETE FROM basket WHERE id=${id}`, [], (err) => {
 				if(err)
@@ -106,19 +106,19 @@ class Database{
 		});
 	}
 
-	getTrackById(id){
+	getTrackById = (id) => {
 		return this.getRow(`SELECT * FROM tracks WHERE id=${id}`);
 	}
 
-	getAllTracks(){
+	getAllTracks = () => {
 		return this.getRows(`SELECT * FROM tracks`);
 	}
 
-	getTrackTags(id){
+	getTrackTags = (id) => {
 		return this.request(`SELECT tn.name FROM tags t JOIN tag_names tn ON t.tag_id = tn.id WHERE track_id=${id}`);
 	}
 
-	getAllPrices(){
+	getAllPrices = () => {
 		return this.getRows(`SELECT * FROM prices`);
 	}
 }

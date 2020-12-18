@@ -1,6 +1,7 @@
 const {createToken} = require('../config/jwt')
 const {DB:{createUser, getUserById}} = require('../database/database');
 
+
 const getById = async (id) => {
     const {password, ...user} = await getUserById(id);
     return user;

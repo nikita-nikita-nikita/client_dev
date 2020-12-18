@@ -1,13 +1,24 @@
 import React from "react";
 import "../stylesAuthPage.scss";
 import { Link } from "react-router-dom";
+import transformData from '../../../services/transformData';
+import auth from '../../../services/auth';
 const LoginPage = () => {
-    // todo some stuff for login
+    const logInHandler = (e) => {
+        e.preventDefault();
+
+        const data = transformData(e.target);
+
+
+        console.log(data);
+        auth('http://127.0.0.1:5000/users/login', data).then(r => console.log(r));
+    }
+
     return (
         <div className="auth-page">
             {/* todo there might be logo*/}
             <h2>Sign in to continue</h2>
-            <form className="email-login-form">
+            <form onSubmit={logInHandler} className="email-login-form">
                 <p>Email or username</p>
                 <input name="email-username" placeholder="Type your email or username..."/>
                 <div className="over-password"><p>Password</p> <a href="/forgot-password">Forgot password?</a></div>

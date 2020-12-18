@@ -6,5 +6,6 @@ const expiresIn = '7d';
 const createToken = (data) => jwt.sign(data, secret, { expiresIn });
 
 module.exports = {
-    createToken
+    createToken,
+    secret
 }

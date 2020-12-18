@@ -1,13 +1,25 @@
-import React from "react";
-import {Link} from "react-router-dom";
+import React from 'react';
+import {Link} from 'react-router-dom';
+import auth from '../../../services/auth';
+import transformData from '../../../services/transformData';
 
 const RegisterPage = () => {
-    // todo some stuff for register
+
+    const serveData = e => {
+        e.preventDefault();
+
+        const data = transformData(e.target);
+
+        auth('http://127.0.0.1:5000/users/register', data).then(r => {
+            console.log(r);
+        });
+    };
+
     return (
         <div className="auth-page">
             {/* todo there might be logo*/}
             <h2>Register</h2>
-            <form className="email-login-form">
+            <form onSubmit={serveData} className="email-login-form">
                 <p>Your username</p>
                 <input name="username" placeholder="Set a username for your profile"/>
                 <p>Your email</p>
@@ -15,7 +27,7 @@ const RegisterPage = () => {
                 <p>Password</p>
                 <input name="password" placeholder="Type your password..." type="password"/>
                 <p>Confirmed password</p>
-                <input name="password" placeholder="Confirm your password..." type="password"/>
+                <input name="ad_password" placeholder="Confirm your password..." type="password"/>
                 <label>
                     <input type="checkbox" name="checked"/>
                     <span className="labeled-text">
@@ -42,7 +54,7 @@ const RegisterPage = () => {
             <p>Already have an account? <Link to="/login">Sign in</Link></p>
 
         </div>
-    )
-}
+    );
+};
 
 export default RegisterPage;
