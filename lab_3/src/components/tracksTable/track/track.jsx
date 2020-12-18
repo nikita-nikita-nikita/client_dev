@@ -10,24 +10,25 @@ const Track = ({track, audio, setSelectedTrack, setPreviousTrack, addedToCart}) 
 
     const [modalShow, setModalShow] = useState(false);
 
-    if(audio.selectedTrack === null && audio.previousTrack === track.id){
+    if (audio.selectedTrack === null && audio.previousTrack === track.id) {
         audio.audioInstance.pause();
     }
 
-    if(audio.selectedTrack === track.id){
-        if(audio.previousTrack !== track.id){
+    if (audio.selectedTrack === track.id) {
+        if (audio.previousTrack !== track.id) {
             audio.audioInstance.playByIndex(track.id - 1);
-        }else{
+        } else {
             audio.audioInstance.play();
         }
     }
 
     // Playback functionality
     const PlayBack = () => {
-        if(audio.selectedTrack === track.id){
+        if (audio.selectedTrack === track.id) {
             setSelectedTrack(null);
             setPreviousTrack(track.id);
-        }else{
+
+        } else {
             setSelectedTrack(track.id);
             setPreviousTrack(audio.selectedTrack);
         }
@@ -35,8 +36,8 @@ const Track = ({track, audio, setSelectedTrack, setPreviousTrack, addedToCart}) 
         audio.audioInstance.play();
     }
     return (
-        <tr className={track.id === audio.selectedTrack ? "selected_tr" : ""} onClick={() => {
-            PlayBack()
+        <tr className={track.id === audio.selectedTrack ? "selected_tr" : ""} onClick={(e) => {
+            PlayBack();
         }}>
             <td className="td-img">
                 <img className="td-img-main" src={track.imgUrl} alt="beat image"/>
@@ -54,19 +55,14 @@ const Track = ({track, audio, setSelectedTrack, setPreviousTrack, addedToCart}) 
                 {track.tags.map((tag, i) => <b key={i} className="tag">#{tag}</b>)}
             </td>
             <td className="add-to-cart">
-                <button className="cart_button" onClick={() => {
-
-                    addedToCart({
-                        track: track,
-                        amount: "",
-                        licenseType: "MP3 LEASE"
-                    });
+                <button className="cart_button" onClick={(e) => {
+                    e.stopPropagation();
 
                     setModalShow(true);
                 }}>
                     <FontAwesomeIcon icon={faShoppingCart}/> ADD
                 </button>
-                <LicenseTypeModal key={track.id} track={track} buttonClass="cart_button" show={modalShow}/>
+                <LicenseTypeModal key={track.id} track={track} buttonClass="cart_button" show={modalShow} setOpen={setModalShow}/>
             </td>
         </tr>
 

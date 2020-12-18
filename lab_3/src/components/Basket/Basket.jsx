@@ -26,10 +26,12 @@ const Basket = () => {
                     <Table.Row>
                         <Table.HeaderCell width={1} className="header-item">
                         </Table.HeaderCell>
-                        <Table.HeaderCell width={2} textAlign="left" className="header-item">PRODUCT</Table.HeaderCell>
+                        <Table.HeaderCell width={2} textAlign="left"
+                                          className="header-item">PRODUCT</Table.HeaderCell>
                         <Table.HeaderCell width={3} textAlign="center" className="header-item">LICENSE
                             TYPE</Table.HeaderCell>
-                        <Table.HeaderCell width={1} textAlign="center" className="header-item">AMOUNT</Table.HeaderCell>
+                        <Table.HeaderCell width={1} textAlign="center"
+                                          className="header-item">AMOUNT</Table.HeaderCell>
                         <Table.HeaderCell width={4} textAlign="center" className="header-item">LICENSE
                             REVIEW</Table.HeaderCell>
                         <Table.HeaderCell width={1} textAlign="left" className="header-item"> </Table.HeaderCell>
@@ -49,6 +51,7 @@ const Basket = () => {
 
                         shoppingCart.cart.map((cartItem, i) =>
                             <BasketRow
+                                show={true}
                                 key={i}
                                 id={parseInt(cartItem.track.id)}
                                 amount={cartItem.amount}
@@ -107,16 +110,17 @@ const Basket = () => {
                             <label className="cart-label">
                                 <input onChange={(e) => checkInputHandler(e)} type="checkbox" name="checked"/>
                                 <span className="labeled-text">
-                                   I reviewed and agree to the Track(s) License Agreements
-                                </span>
+                I reviewed and agree to the Track(s) License Agreements
+                </span>
                             </label>
                             <button type="submit" className="buy-button" disabled={isDisabled}>PURCHASE</button>
                         </div>
                     </form>
                     <span className="offer-sign-up">Would you like keep records of your Transaction(s)
-                        for future download of your Purchased files? <Link to="/register">Login or Create</Link> a free account here.</span>
+                for future download of your Purchased files? <Link to="/register">Login or Create</Link> a free account here.</span>
                 </div>
             </aside>
+            }
         </div>
     )
 };

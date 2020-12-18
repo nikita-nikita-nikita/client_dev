@@ -157,7 +157,17 @@
 
 }
 
+.modal-open-animation {
+    animation: open-modal 2s ease-in-out;
+}
+
+.modal-close-animation {
+    animation: close-modal 2s ease-in-out;
+}
+
 .license__main-modal-container {
+    //animation: open-modal 1.5s ease-in-out;
+
     max-width: 1250px;
     top: auto !important;
     left: auto !important;
@@ -191,19 +201,28 @@
     transform: translateY(100px)
 }
 
-.modal-transition-enter {
-    opacity: 0;
+@keyframes open-modal {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
-.modal-transition-active {
-    opacity: 1;
-    transition: opacity 200ms;
-}
-.modal-transition-exit {
-    opacity: 1;
-}
-.modal-transition-active {
-    opacity: 0;
-    transition: opacity 200ms;
+
+@keyframes close-modal {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(0);
+    }
 }
 
 @keyframes close {

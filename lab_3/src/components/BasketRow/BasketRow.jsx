@@ -5,30 +5,39 @@ import {faTimes, faPlayCircle, faPauseCircle} from "@fortawesome/free-solid-svg-
 import {LicenseBox} from "../priceCards";
 import {Table} from "semantic-ui-react";
 import {useDispatch} from "react-redux";
-import {removedFromCart} from "../../redux/actions";
+import {removedFromCart, setPreviousTrack} from "../../redux/actions";
 import {setSelectedTrack} from "../../redux/actions";
 import {useSelector} from "react-redux";
+import {TransitionablePortal} from "semantic-ui-react";
 
-// TODO HUGE PLAYBACK BUG
-const BasketRow = ({id, product, amount, licenseType, imgUrl}) => {
-    const [isPlaying, setPlaying] = useState(false);
+const BasketRow = ({id, product, amount, licenseType, imgUrl, show}) => {
     const audio = useSelector(state => state.audio);
+    const [isAnimated, setAnimation] = React.useState(false);
 
     const dispatch = useDispatch();
 
-    const PlayBack = (id, instance, selectedTrack,) => {
-        console.log(instance, selectedTrack, " PLAYBACK IN CART");
+    if (audio.selectedTrack === null && audio.previousTrack === id) {
+        audio.audioInstance.pause();
+    }
 
-        if (selectedTrack === id) { // Set up current track utility
-            setPlaying(false);
-            instance.pause();
-            dispatch(setSelectedTrack(null));
+    if (audio.selectedTrack === id) {
+        if (audio.previousTrack !== id) {
+            audio.audioInstance.playByIndex(id - 1);
+        } else {
+            audio.audioInstance.play();
+        }
+    }
+    const PlayBack = () => {
+        if (audio.selectedTrack === id) {
+            dispatch(setSelectedTrack(null))
+            dispatch(setPreviousTrack(id));
 
         } else {
-            setPlaying(true);
-            instance.playByIndex(id - 1);
-            dispatch(setSelectedTrack(id));
+            dispatch(setSelectedTrack(id))
+            dispatch(setPreviousTrack(audio.selectedTrack));
         }
+
+        audio.audioInstance.play();
     }
 
     return (
@@ -39,7 +48,7 @@ const BasketRow = ({id, product, amount, licenseType, imgUrl}) => {
                         PlayBack(id, audio.audioInstance, audio.selectedTrack)
                     }
                 }>
-                    <FontAwesomeIcon icon={isPlaying ? faPauseCircle : faPlayCircle}/>
+                    <FontAwesomeIcon icon={audio.selectedTrack === id ? faPauseCircle : faPlayCircle}/>
                 </button>
                 <img className='img-cart'
                      src={imgUrl}
@@ -60,6 +69,7 @@ const BasketRow = ({id, product, amount, licenseType, imgUrl}) => {
             <Table.Cell width={1} verticalAlign="middle" textAlign="center"
                         className="row-item remove-from-cart-button-container">
                 <button className="remove-from-cart-button" onClick={() => {
+                    setAnimation(true);
                     dispatch(removedFromCart(id))
                 }}>
                     <FontAwesomeIcon className='basket__remove-item' icon={faTimes}/>
