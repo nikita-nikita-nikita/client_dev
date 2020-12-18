@@ -2,33 +2,41 @@ import React, {useState} from "react";
 import "./stylesTrack.scss";
 import {faShoppingCart} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {setAudioInstance, setSelectedTrack, addedToCart} from "../../../redux/actions";
+import {setAudioInstance, setSelectedTrack, setPreviousTrack, addedToCart} from "../../../redux/actions";
 import LicenseTypeModal from "../../LicenseTypeModal";
 import {connect} from "react-redux";
 
-const Track = ({track, audio, setSelectedTrack, addedToCart}) => {
+const Track = ({track, audio, setSelectedTrack, setPreviousTrack, addedToCart}) => {
 
     const [modalShow, setModalShow] = useState(false);
 
-    // Playback functionality
-    const PlayBack = (selectedTrack) => {
-        if (selectedTrack === audio.selectedTrack || audio.selectedTrack == null){
+    if(audio.selectedTrack === null && audio.previousTrack === track.id){
+        audio.audioInstance.pause();
+    }
 
-            if(audio.selectedTrack == null){
-                audio.audioInstance.play();
-                setSelectedTrack(selectedTrack);
-            }else{
-                audio.audioInstance.pause();
-            }
-
+    if(audio.selectedTrack === track.id){
+        if(audio.previousTrack !== track.id){
+            audio.audioInstance.playByIndex(track.id - 1);
         }else{
-            setSelectedTrack(selectedTrack);
-            audio.audioInstance.playByIndex(selectedTrack - 1);
+            audio.audioInstance.play();
         }
+    }
+
+    // Playback functionality
+    const PlayBack = () => {
+        if(audio.selectedTrack === track.id){
+            setSelectedTrack(null);
+            setPreviousTrack(track.id);
+        }else{
+            setSelectedTrack(track.id);
+            setPreviousTrack(audio.selectedTrack);
+        }
+
+        audio.audioInstance.play();
     }
     return (
         <tr className={track.id === audio.selectedTrack ? "selected_tr" : ""} onClick={() => {
-            PlayBack(track.id)
+            PlayBack()
         }}>
             <td className="td-img">
                 <img className="td-img-main" src={track.imgUrl} alt="beat image"/>
@@ -68,6 +76,7 @@ const Track = ({track, audio, setSelectedTrack, addedToCart}) => {
 const mapStateToProps = (audio) => audio;
 const mapDispatchToProps = {
     setSelectedTrack,
+    setPreviousTrack,
     addedToCart
 }
 

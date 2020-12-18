@@ -35,6 +35,12 @@ const setSelectedTrack = (payload) => ({
     type: actions.SET_SELECTED_TRACK,
     payload: payload
 })
+
+const setPreviousTrack = (payload) => ({
+    type: actions.SET_PREVIOUS_TRACK,
+    payload: payload
+})
+
 const setAudioInstance = (payload) => ({
     type: actions.SET_AUDIO_INSTANCE,
     payload: payload
@@ -54,5 +60,6 @@ export {
     pricesFetched,
     setAudioInstance,
     setSelectedTrack,
-    setSearch
+    setSearch,
+    setPreviousTrack
 };
