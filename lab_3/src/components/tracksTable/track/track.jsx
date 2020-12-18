@@ -15,14 +15,25 @@ const Track = (props) => {
 
     // Playback functionality
     const PlayBack = (selectedTrack) => {
-        if (selectedTrack === props.track.id) { // Set up current track utility
+        if (selectedTrack === props.track.id || selectedTrack === null) { // Set up current track utility
             console.log("STOP");
 
-            dispatch(setSelectedTrack(null));
-            audio.audioInstance.pause();
+            switch (selectedTrack) {
+                case null: {
+                    audio.audioInstance.playByIndex(props.track.id - 1);
+                    dispatch(setSelectedTrack(props.track.id));
+                    break;
+                }
+                default: {
+                    audio.audioInstance.pause();
+                    dispatch(setSelectedTrack(null));
+                }
+            }
+
             console.log("STOOOOOOOOOOOOOOOP");
         } else {
             dispatch(setSelectedTrack(props.track.id));
+
             audio.audioInstance.playByIndex(props.track.id - 1);
         }
     }
