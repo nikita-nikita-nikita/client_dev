@@ -10,7 +10,7 @@ const RegisterPage = () => {
 
         const data = transformData(e.target);
 
-        auth('http://127.0.0.1:5000/users/register', data).then(r => {
+        auth('http://localhost:5000/users/register', data).then(r => {
             console.log(r);
         });
     };
@@ -23,7 +23,7 @@ const RegisterPage = () => {
                 <p>Your username</p>
                 <input name="username" placeholder="Set a username for your profile"/>
                 <p>Your email</p>
-                <input name="email" placeholder="Type your email..." type="email"/>
+                <input name="email" placeholder="Type your email..."/>
                 <p>Password</p>
                 <input name="password" placeholder="Type your password..." type="password"/>
                 <p>Confirmed password</p>
@@ -35,22 +35,22 @@ const RegisterPage = () => {
                         I have read and agree to the <a>Terms of service</a> and <a>Privacy policy</a>
                     </span>
                 </label>
-                <button>Sign up</button>
+                <button type="submit">Sign up</button>
             </form>
-            <h2 className="divider-h2">
-                <div className="line"/>
-                <span>OR</span>
-                <div className="line"/>
-            </h2>
-            <button className="oauth">
-                <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
-                    width="15"
-                    height="15"
-                    alt="Google"
-                />
-                Sign up with Google
-            </button>
+            {/*<h2 className="divider-h2">*/}
+            {/*    <div className="line"/>*/}
+            {/*    <span>OR</span>*/}
+            {/*    <div className="line"/>*/}
+            {/*</h2>*/}
+            {/*<button className="oauth">*/}
+            {/*    <img*/}
+            {/*        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"*/}
+            {/*        width="15"*/}
+            {/*        height="15"*/}
+            {/*        alt="Google"*/}
+            {/*    />*/}
+            {/*    Sign up with Google*/}
+            {/*</button>*/}
             <p>Already have an account? <Link to="/login">Sign in</Link></p>
 
         </div>

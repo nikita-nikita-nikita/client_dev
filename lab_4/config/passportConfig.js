@@ -9,11 +9,13 @@ const {DB:{getUserByMail, getUserByUsername, getUserById}} = require('../databas
 passport.use(
     "login",
     new LocalStrategy({usernameField:"email"}, async (email, password, done)=>{
+        console.log(email, password)
         try {
             const userByEmail = await getUserByMail(email);
+            console.log(userByEmail, 'userByEmail')
             if(!userByEmail)
                 return done({ status: 401, message: 'Incorrect password or email.' }, null);
-            return await compare(password, userByEmail.password)
+            return password === userByEmail.password
                 ? done(null, userByEmail)
                 : done({ status: 401, message: 'Incorrect password or email.' }, null)
         }catch (error){
@@ -29,7 +31,9 @@ passport.use(
     new LocalStrategy(
         {
             passReqToCallback: true
-        }, async ({body:{email}}, username, password, done)=>{
+        }, async ({body}, username, password, done)=>{
+            const {email} = body;
+            console.log(body)
         try {
             if(!validator.isEmail(email)||password.length<6)
                 return done(
