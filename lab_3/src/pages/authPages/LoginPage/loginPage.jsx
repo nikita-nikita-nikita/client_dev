@@ -15,7 +15,8 @@ const LoginPage = ({loggedIn}) => {
 
         console.log(data);
         auth('http://localhost:5000/users/login', data).then(r => {
-            if(r) loggedIn()
+            localStorage.setItem('token', r.token);
+            loggedIn()
             history.push('/');
         });
     }

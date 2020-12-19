@@ -14,6 +14,7 @@ const RegisterPage = ({loggedIn}) => {
         const data = transformData(e.target);
 
         auth('http://localhost:5000/users/register', data).then(r => {
+            localStorage.setItem('token', r.token);
             if(r) loggedIn();
             history.push('/');
         });
