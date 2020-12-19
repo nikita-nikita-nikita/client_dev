@@ -37,7 +37,10 @@ const Header = ({customer, loggedIn}) => {
                         {
                             !customer.isLoggedIn
                                 ? <Nav.Link className="invert login" to="/login" as={Link}><FontAwesomeIcon icon={faUser}/>Log In</Nav.Link>
-                                : <button className="invert-button" onClick={() => loggedIn()}>Log out</button>
+                                : <button className="invert-button" onClick={() => {
+                                    loggedIn();
+                                    localStorage.removeItem('token')
+                                }}>Log out</button>
                         }
 
                     </Nav>
