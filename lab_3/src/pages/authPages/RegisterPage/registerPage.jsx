@@ -1,9 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 import auth from '../../../services/auth';
 import transformData from '../../../services/transformData';
+import {loggedIn} from '../../../redux/actions';
 
-const RegisterPage = () => {
+const RegisterPage = ({loggedIn}) => {
 
     const serveData = e => {
         e.preventDefault();
@@ -11,7 +13,7 @@ const RegisterPage = () => {
         const data = transformData(e.target);
 
         auth('http://localhost:5000/users/register', data).then(r => {
-            console.log(r);
+            if(r) loggedIn()
         });
     };
 
@@ -57,4 +59,8 @@ const RegisterPage = () => {
     );
 };
 
-export default RegisterPage;
+const mapDispatchToProps = {
+    loggedIn
+}
+
+export default connect(null, mapDispatchToProps)(RegisterPage);

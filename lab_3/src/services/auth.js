@@ -1,13 +1,8 @@
-export default (url, data) => {
-
-        return new Promise((resolve, reject) => {
-            fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: data,
-            }).then(resolve, reject);
-        })
-
-};
+export default (url, data) =>
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: data,
+    }).then(res => res.json())
