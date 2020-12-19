@@ -1,11 +1,12 @@
 import React from "react";
 import "../stylesAuthPage.scss";
-import { Link } from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import transformData from '../../../services/transformData';
 import auth from '../../../services/auth';
 import {loggedIn} from "../../../redux/actions";
 import {connect} from "react-redux";
 const LoginPage = ({loggedIn}) => {
+    const history = useHistory();
     const logInHandler = (e) => {
         e.preventDefault();
 
@@ -15,6 +16,7 @@ const LoginPage = ({loggedIn}) => {
         console.log(data);
         auth('http://localhost:5000/users/login', data).then(r => {
             if(r) loggedIn()
+            history.push('/');
         });
     }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import {connect} from 'react-redux';
 import auth from '../../../services/auth';
 import transformData from '../../../services/transformData';
@@ -7,13 +7,15 @@ import {loggedIn} from '../../../redux/actions';
 
 const RegisterPage = ({loggedIn}) => {
 
+    const history = useHistory();
     const serveData = e => {
         e.preventDefault();
 
         const data = transformData(e.target);
 
         auth('http://localhost:5000/users/register', data).then(r => {
-            if(r) loggedIn()
+            if(r) loggedIn();
+            history.push('/');
         });
     };
 
