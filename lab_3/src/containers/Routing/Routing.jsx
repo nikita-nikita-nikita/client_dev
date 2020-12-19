@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect} from "react";
 import Header from "../../components/Header";
 
 
@@ -28,11 +28,15 @@ import {
     beatsFetched,
     setAudioInstance,
     setSelectedTrack,
-    pricesFetched
+    pricesFetched, loggedIn
 } from '../../redux/actions';
 
 
-const Routing = ({setAudioInstance, setSelectedTrack, beatsFetched, pricesFetched, beatList}) => {
+const Routing = ({setAudioInstance, setSelectedTrack, beatsFetched, pricesFetched, beatList, loggedIn}) => {
+
+    useEffect( () => {
+        if(localStorage.getItem('token')) loggedIn();
+    }, [])
 
     getTracks.then((message) => {
         beatsFetched(message.data);
@@ -84,7 +88,8 @@ const mapDispatchToProps = {
     beatsFetched,
     setSelectedTrack,
     setAudioInstance,
-    pricesFetched
+    pricesFetched,
+    loggedIn
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Routing);
