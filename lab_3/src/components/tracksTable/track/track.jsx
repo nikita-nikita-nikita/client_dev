@@ -57,12 +57,15 @@ const Track = ({track, audio, setSelectedTrack, setPreviousTrack, addedToCart}) 
             <td className="add-to-cart">
                 <button className="cart_button" onClick={(e) => {
                     e.stopPropagation();
-
                     setModalShow(true);
                 }}>
                     <FontAwesomeIcon icon={faShoppingCart}/> ADD
                 </button>
-                <LicenseTypeModal key={track.id} track={track} buttonClass="cart_button" show={modalShow} setOpen={setModalShow}/>
+                <LicenseTypeModal key={track.id}
+                                  track={track}
+                                  buttonClass="cart_button"
+                                  show={modalShow}
+                                  setOpen={setModalShow}/>
             </td>
         </tr>
 
