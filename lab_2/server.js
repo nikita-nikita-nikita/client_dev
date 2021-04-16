@@ -33,7 +33,7 @@ io.sockets.on('connection', (socket) => {
     console.log(socket.handshake.headers['x-forwarded-for']);
 
     if(socket.handshake.headers['x-forwarded-for'] == DOMIK)
-        socket.emit("ban nahuy");
+        socket.emit("ban");
 
 
     socket.emit("all mess", messages, users);
