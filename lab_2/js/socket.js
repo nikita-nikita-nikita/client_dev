@@ -29,12 +29,6 @@ socket.on("send figure", (data) => {
     else paint.drawOrErase(data);
 });
 
-socket.on("ban nahuy", ()=>{
-    while(1){
-        alert('ВЫ ЗАБАНЕНЫ ПО ПРИЧИНЕ: ДОМИК');
-    }
-});
-
 socket.on("all figures", (data) => data.forEach(figure => paint.drawOrErase(figure)));
 
 socket.on("erase all", (id) => {
